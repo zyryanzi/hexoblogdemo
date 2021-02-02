@@ -6,15 +6,15 @@
   
   <title>centos7 let&#39;s encrypt | NON-TECH</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="转载于：https:&#x2F;&#x2F;my.oschina.net&#x2F;u&#x2F;174201&#x2F;blog&#x2F;1577784 Let’s Encrypt如果要启用 HTTPS，我们需要一个 CA 证书，Let’s Encrypt 是一个免费的证书颁发机构，由 ISRG（Internet Security Research Group）运作。 使用 Certbot 获取证书Certbot 是 Let’s Encrypt 官方推">
+  <meta name="description" content="转载于：https:&#x2F;&#x2F;my.oschina.net&#x2F;u&#x2F;174201&#x2F;blog&#x2F;1577784 Let’s Encrypt如果要启用 HTTPS，我们需要一个 CA 证书，Let’s Encrypt 是一个免费的证书颁发机构，由 ISRG（Internet Security Research Group）运作。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7 let&#39;s encrypt">
 <meta property="og:url" content="http://example.com/2021/02/02/centos7-let-s-encrypt/index.html">
 <meta property="og:site_name" content="NON-TECH">
-<meta property="og:description" content="转载于：https:&#x2F;&#x2F;my.oschina.net&#x2F;u&#x2F;174201&#x2F;blog&#x2F;1577784 Let’s Encrypt如果要启用 HTTPS，我们需要一个 CA 证书，Let’s Encrypt 是一个免费的证书颁发机构，由 ISRG（Internet Security Research Group）运作。 使用 Certbot 获取证书Certbot 是 Let’s Encrypt 官方推">
+<meta property="og:description" content="转载于：https:&#x2F;&#x2F;my.oschina.net&#x2F;u&#x2F;174201&#x2F;blog&#x2F;1577784 Let’s Encrypt如果要启用 HTTPS，我们需要一个 CA 证书，Let’s Encrypt 是一个免费的证书颁发机构，由 ISRG（Internet Security Research Group）运作。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-02-02T03:17:21.000Z">
-<meta property="article:modified_time" content="2021-02-02T08:20:06.077Z">
+<meta property="article:modified_time" content="2021-02-02T09:55:57.233Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="别人的宝藏">
 <meta name="twitter:card" content="summary">
@@ -102,6 +102,7 @@
       
         <p><em>转载于：<a target="_blank" rel="noopener" href="https://my.oschina.net/u/174201/blog/1577784">https://my.oschina.net/u/174201/blog/1577784</a></em></p>
 <h2 id="Let’s-Encrypt"><a href="#Let’s-Encrypt" class="headerlink" title="Let’s Encrypt"></a>Let’s Encrypt</h2><p>如果要启用 HTTPS，我们需要一个 CA 证书，Let’s Encrypt 是一个免费的证书颁发机构，由 ISRG（Internet Security Research Group）运作。</p>
+<a id="more"></a>
 <h2 id="使用-Certbot-获取证书"><a href="#使用-Certbot-获取证书" class="headerlink" title="使用 Certbot 获取证书"></a>使用 Certbot 获取证书</h2><p>Certbot 是 Let’s Encrypt 官方推荐的证书获取工具，它可以帮助很方便的获取和更新 Let’s Encrypt 证书，Certbot 支持所有 Unix 内核的操作系统。</p>
 <h2 id="安装-Certbot-客户端"><a href="#安装-Certbot-客户端" class="headerlink" title="安装 Certbot 客户端"></a>安装 Certbot 客户端</h2><pre><code>yum install -y epel-release
 yum install -y certbot
@@ -121,7 +122,7 @@ yum install -y certbot
 -w 指定 webroot 目录
 -d domain 想要获取的证书域名，支持多个域名
 </code></pre>
-<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#120;&#x78;&#x78;&#120;&#120;&#64;&#120;&#x78;&#x78;&#46;&#99;&#111;&#109;">&#x78;&#120;&#x78;&#x78;&#120;&#120;&#64;&#120;&#x78;&#x78;&#46;&#99;&#111;&#109;</a> –agree-tos</p>
+<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#120;&#x78;&#x78;&#x78;&#120;&#120;&#64;&#120;&#120;&#120;&#46;&#x63;&#x6f;&#x6d;">&#120;&#x78;&#x78;&#x78;&#120;&#120;&#64;&#120;&#120;&#120;&#46;&#x63;&#x6f;&#x6d;</a> –agree-tos</p>
 <p>如果成功获取证书，你的密钥和证书存放在 /etc/letsencrypt/live/sub.domain.com/ 目录：</p>
 <pre><code>ll /etc/letsencrypt/live/sub.domain.com/
 
