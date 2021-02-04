@@ -119,7 +119,7 @@
 <pre><code>yum install certbot-nginx
 </code></pre>
 <p>以为到这里万事大吉，结果在执行以下命令时：</p>
-<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#x78;&#120;&#120;&#120;&#x40;&#120;&#120;&#x78;&#x2e;&#99;&#111;&#109;">&#x78;&#x78;&#x78;&#120;&#120;&#120;&#x40;&#120;&#120;&#x78;&#x2e;&#99;&#111;&#109;</a> –agree-tos</p>
+<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#120;&#x78;&#x78;&#120;&#x78;&#64;&#x78;&#x78;&#120;&#x2e;&#99;&#111;&#109;">&#x78;&#120;&#x78;&#x78;&#120;&#x78;&#64;&#x78;&#x78;&#120;&#x2e;&#99;&#111;&#109;</a> –agree-tos</p>
 <p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
 <p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
 <pre><code>python -m pip ......
@@ -139,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://nontech.top/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/" data-id="ckkq6awzs000ajktv62biafa8" data-title="centos7-certbot-python2-版本坑" class="article-share-link">Share</a>
+      <a data-url="http://nontech.top/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/" data-id="ckkq91ctg0004awtv6die85zg" data-title="centos7-certbot-python2-版本坑" class="article-share-link">Share</a>
       
       
       
