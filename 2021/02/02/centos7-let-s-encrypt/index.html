@@ -9,13 +9,13 @@
   <meta name="description" content="转载于：https:&#x2F;&#x2F;my.oschina.net&#x2F;u&#x2F;174201&#x2F;blog&#x2F;1577784 Let’s Encrypt如果要启用 HTTPS，我们需要一个 CA 证书，Let’s Encrypt 是一个免费的证书颁发机构，由 ISRG（Internet Security Research Group）运作。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7 let&#39;s encrypt">
-<meta property="og:url" content="http://example.com/2021/02/02/centos7-let-s-encrypt/index.html">
+<meta property="og:url" content="http://nontech.top/2021/02/02/centos7-let-s-encrypt/index.html">
 <meta property="og:site_name" content="NON-TECH">
 <meta property="og:description" content="转载于：https:&#x2F;&#x2F;my.oschina.net&#x2F;u&#x2F;174201&#x2F;blog&#x2F;1577784 Let’s Encrypt如果要启用 HTTPS，我们需要一个 CA 证书，Let’s Encrypt 是一个免费的证书颁发机构，由 ISRG（Internet Security Research Group）运作。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-02-02T03:17:21.000Z">
-<meta property="article:modified_time" content="2021-02-03T03:27:19.562Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2021-02-04T01:18:14.948Z">
+<meta property="article:author" content="Uray Chow">
 <meta property="article:tag" content="别人的宝藏">
 <meta name="twitter:card" content="summary">
   
@@ -50,6 +50,10 @@
         <a href="/" id="logo">NON-TECH</a>
       </h1>
       
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">非技术不存在</a>
+        </h2>
+      
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
@@ -67,7 +71,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://nontech.top"></form>
       </div>
     </div>
   </div>
@@ -123,7 +127,7 @@ yum install -y certbot
 -w 指定 webroot 目录
 -d domain 想要获取的证书域名，支持多个域名
 </code></pre>
-<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#120;&#x78;&#120;&#64;&#x78;&#120;&#x78;&#46;&#x63;&#x6f;&#109;">&#x78;&#x78;&#120;&#120;&#x78;&#120;&#64;&#x78;&#120;&#x78;&#46;&#x63;&#x6f;&#109;</a> –agree-tos</p>
+<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#120;&#x78;&#120;&#64;&#120;&#x78;&#120;&#x2e;&#99;&#x6f;&#x6d;">&#x78;&#x78;&#120;&#120;&#x78;&#120;&#64;&#120;&#x78;&#120;&#x2e;&#99;&#x6f;&#x6d;</a> –agree-tos</p>
 <p>如果成功获取证书，你的密钥和证书存放在 /etc/letsencrypt/live/sub.domain.com/ 目录：</p>
 <pre><code>ll /etc/letsencrypt/live/sub.domain.com/
 
@@ -210,7 +214,7 @@ add_header Strict-Transport-Security max-age=15768000;
     remoteIpProxiesHeader=&quot;x-forwarded-by&quot;
     protocolHeader=&quot;x-forwarded-proto&quot; /&gt;
 </code></pre>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>启动 nginx 或重新载入配置，使用浏览器打开 <a target="_blank" rel="noopener" href="https://sub.domain.com/">https://sub.domain.com/</a></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><h4 id="如果开启了防火墙，记得开放-443-端口"><a href="#如果开启了防火墙，记得开放-443-端口" class="headerlink" title="如果开启了防火墙，记得开放 443 端口"></a><em>如果开启了防火墙，记得开放 443 端口</em></h4><p>启动 nginx 或重新载入配置，使用浏览器打开 <a target="_blank" rel="noopener" href="https://sub.domain.com/">https://sub.domain.com/</a></p>
 <pre><code>service nginx reload
 </code></pre>
 <p>可以使用在线工具 <a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest">https://www.ssllabs.com/ssltest</a> 来检测证书情况。</p>
@@ -227,7 +231,7 @@ add_header Strict-Transport-Security max-age=15768000;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/02/centos7-let-s-encrypt/" data-id="ckkntgyuh0004g0tv2ty85wr2" data-title="centos7 let&#39;s encrypt" class="article-share-link">Share</a>
+      <a data-url="http://nontech.top/2021/02/02/centos7-let-s-encrypt/" data-id="ckkq6awzt000bjktv92xzd3pj" data-title="centos7 let&#39;s encrypt" class="article-share-link">Share</a>
       
       
       
@@ -342,7 +346,7 @@ add_header Strict-Transport-Security max-age=15768000;
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2021 John Doe<br>
+      &copy; 2021 Uray Chow<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

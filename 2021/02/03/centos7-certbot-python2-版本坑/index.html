@@ -9,13 +9,13 @@
   <meta name="description" content="centos7 系统很多年前装的 python2 ；后来又装了python3 ；再后来使用了 pip ，默认包都是给python3用的python2 的包一直没有更新在使用 Let’s Ecrypt 生成SSL证书时，遇到了版本不兼容的坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7-certbot-python2-版本坑">
-<meta property="og:url" content="http://example.com/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/index.html">
+<meta property="og:url" content="http://nontech.top/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/index.html">
 <meta property="og:site_name" content="NON-TECH">
 <meta property="og:description" content="centos7 系统很多年前装的 python2 ；后来又装了python3 ；再后来使用了 pip ，默认包都是给python3用的python2 的包一直没有更新在使用 Let’s Ecrypt 生成SSL证书时，遇到了版本不兼容的坑">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-02-03T02:46:17.000Z">
 <meta property="article:modified_time" content="2021-02-03T05:54:13.381Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Uray Chow">
 <meta property="article:tag" content="别人的宝藏">
 <meta name="twitter:card" content="summary">
   
@@ -50,6 +50,10 @@
         <a href="/" id="logo">NON-TECH</a>
       </h1>
       
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">非技术不存在</a>
+        </h2>
+      
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
@@ -67,7 +71,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://nontech.top"></form>
       </div>
     </div>
   </div>
@@ -115,7 +119,7 @@
 <pre><code>yum install certbot-nginx
 </code></pre>
 <p>以为到这里万事大吉，结果在执行以下命令时：</p>
-<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#120;&#x78;&#120;&#x78;&#120;&#120;&#x40;&#120;&#120;&#x78;&#46;&#99;&#x6f;&#109;">&#120;&#x78;&#120;&#x78;&#120;&#120;&#x40;&#120;&#120;&#x78;&#46;&#99;&#x6f;&#109;</a> –agree-tos</p>
+<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#x78;&#120;&#120;&#120;&#x40;&#120;&#120;&#x78;&#x2e;&#99;&#111;&#109;">&#x78;&#x78;&#x78;&#120;&#120;&#120;&#x40;&#120;&#120;&#x78;&#x2e;&#99;&#111;&#109;</a> –agree-tos</p>
 <p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
 <p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
 <pre><code>python -m pip ......
@@ -135,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/" data-id="ckkove6o00000fgtv3j9hhtpf" data-title="centos7-certbot-python2-版本坑" class="article-share-link">Share</a>
+      <a data-url="http://nontech.top/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/" data-id="ckkq6awzs000ajktv62biafa8" data-title="centos7-certbot-python2-版本坑" class="article-share-link">Share</a>
       
       
       
@@ -241,7 +245,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2021 John Doe<br>
+      &copy; 2021 Uray Chow<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
