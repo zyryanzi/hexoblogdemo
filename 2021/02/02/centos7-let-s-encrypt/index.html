@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"nontech.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"nontech.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="转载于：https:&#x2F;&#x2F;my.oschina.net&#x2F;u&#x2F;174201&#x2F;blog&#x2F;1577784 Let’s Encrypt如果要启用 HTTPS，我们需要一个 CA 证书，Let’s Encrypt 是一个免费的证书颁发机构，由 ISRG（Internet Security Research Group）运作。">
@@ -229,7 +229,7 @@ yum install -y certbot
 -w 指定 webroot 目录
 -d domain 想要获取的证书域名，支持多个域名
 </code></pre>
-<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#120;&#120;&#120;&#x78;&#120;&#64;&#x78;&#120;&#x78;&#x2e;&#99;&#x6f;&#x6d;">&#x78;&#120;&#120;&#120;&#x78;&#120;&#64;&#x78;&#120;&#x78;&#x2e;&#99;&#x6f;&#x6d;</a> –agree-tos</p>
+<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#120;&#120;&#120;&#120;&#120;&#x78;&#64;&#120;&#x78;&#x78;&#x2e;&#99;&#111;&#109;">&#120;&#120;&#120;&#120;&#120;&#x78;&#64;&#120;&#x78;&#x78;&#x2e;&#99;&#111;&#109;</a> –agree-tos</p>
 <p>如果成功获取证书，你的密钥和证书存放在 /etc/letsencrypt/live/sub.domain.com/ 目录：</p>
 <pre><code>ll /etc/letsencrypt/live/sub.domain.com/
 
@@ -468,8 +468,18 @@ add_header Strict-Transport-Security max-age=15768000;
   </span>
   <span class="author" itemprop="copyrightHolder">Uray Chow</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?5fb44d97475829cacb4b50ff2d0c92af";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
 
         
 
@@ -494,7 +504,7 @@ add_header Strict-Transport-Security max-age=15768000;
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>

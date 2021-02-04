@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"nontech.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"nontech.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="centos7 系统很多年前装的 python2 ；后来又装了python3 ；再后来使用了 pip ，默认包都是给python3用的python2 的包一直没有更新在使用 Let’s Ecrypt 生成SSL证书时，遇到了版本不兼容的坑">
@@ -215,7 +215,7 @@
 <pre><code>yum install certbot-nginx
 </code></pre>
 <p>以为到这里万事大吉，结果在执行以下命令时：</p>
-<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#120;&#120;&#120;&#120;&#120;&#64;&#x78;&#x78;&#x78;&#46;&#x63;&#111;&#x6d;">&#x78;&#120;&#120;&#120;&#120;&#120;&#64;&#x78;&#x78;&#x78;&#46;&#x63;&#111;&#x6d;</a> –agree-tos</p>
+<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#120;&#120;&#x78;&#x78;&#x78;&#x78;&#x40;&#x78;&#120;&#x78;&#x2e;&#99;&#111;&#x6d;">&#120;&#120;&#x78;&#x78;&#x78;&#x78;&#x40;&#x78;&#120;&#x78;&#x2e;&#99;&#111;&#x6d;</a> –agree-tos</p>
 <p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
 <p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
 <pre><code>python -m pip ......
@@ -366,8 +366,18 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Uray Chow</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?5fb44d97475829cacb4b50ff2d0c92af";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
 
         
 
@@ -392,7 +402,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
