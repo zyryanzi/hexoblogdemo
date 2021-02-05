@@ -197,7 +197,7 @@
     <link itemprop="mainEntityOfPage" href="http://nontech.top/2021/02/02/centos7-let-s-encrypt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="Uray Chow">
       <meta itemprop="description" content="热爱技术，但不精通">
     </span>
@@ -270,7 +270,7 @@ yum install -y certbot
 -w 指定 webroot 目录
 -d domain 想要获取的证书域名，支持多个域名
 </code></pre>
-<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#x78;&#x78;&#x78;&#64;&#120;&#x78;&#x78;&#x2e;&#99;&#111;&#109;">&#x78;&#x78;&#120;&#x78;&#x78;&#x78;&#64;&#120;&#x78;&#x78;&#x2e;&#99;&#111;&#109;</a> –agree-tos</p>
+<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#x78;&#x78;&#120;&#x78;&#64;&#120;&#120;&#x78;&#46;&#99;&#111;&#x6d;">&#x78;&#x78;&#x78;&#x78;&#120;&#x78;&#64;&#120;&#120;&#x78;&#46;&#99;&#111;&#x6d;</a> –agree-tos</p>
 <p>如果成功获取证书，你的密钥和证书存放在 /etc/letsencrypt/live/sub.domain.com/ 目录：</p>
 <pre><code>ll /etc/letsencrypt/live/sub.domain.com/
 
@@ -478,6 +478,8 @@ add_header Strict-Transport-Security max-age=15768000;
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Uray Chow"
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">Uray Chow</p>
   <div class="site-description" itemprop="description">热爱技术，但不精通</div>
 </div>
