@@ -237,6 +237,7 @@
               </span>
               <span class="post-meta-item-text">Hot: </span>
               <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
             </span>
   
   <span class="post-meta-item">
@@ -277,7 +278,7 @@
 <pre><code>yum install certbot-nginx
 </code></pre>
 <p>以为到这里万事大吉，结果在执行以下命令时：</p>
-<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#120;&#x78;&#x78;&#x78;&#x78;&#x40;&#x78;&#x78;&#x78;&#x2e;&#99;&#x6f;&#109;">&#x78;&#120;&#x78;&#x78;&#x78;&#x78;&#x40;&#x78;&#x78;&#x78;&#x2e;&#99;&#x6f;&#109;</a> –agree-tos</p>
+<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#x78;&#x78;&#x78;&#64;&#120;&#120;&#x78;&#x2e;&#x63;&#111;&#x6d;">&#x78;&#x78;&#120;&#x78;&#x78;&#x78;&#64;&#120;&#120;&#x78;&#x2e;&#x63;&#111;&#x6d;</a> –agree-tos</p>
 <p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
 <p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
 <pre><code>python -m pip ......
@@ -613,7 +614,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       lang       : '' || 'zh-cn',
       path       : location.pathname,
       recordIP   : false,
-      serverURLs : ''
+      serverURLs : 'https://nontech.top'
     });
   }, window.Valine);
 });
