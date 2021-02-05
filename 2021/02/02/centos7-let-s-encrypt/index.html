@@ -292,7 +292,7 @@ yum install -y certbot
 -w 指定 webroot 目录
 -d domain 想要获取的证书域名，支持多个域名
 </code></pre>
-<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#120;&#x78;&#x78;&#120;&#120;&#120;&#x40;&#120;&#120;&#x78;&#x2e;&#99;&#111;&#x6d;">&#120;&#x78;&#x78;&#120;&#120;&#120;&#x40;&#120;&#120;&#x78;&#x2e;&#99;&#111;&#x6d;</a> –agree-tos</p>
+<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#120;&#120;&#x78;&#120;&#120;&#120;&#x40;&#x78;&#120;&#x78;&#x2e;&#x63;&#x6f;&#x6d;">&#120;&#120;&#x78;&#120;&#120;&#120;&#x40;&#x78;&#120;&#x78;&#x2e;&#x63;&#x6f;&#x6d;</a> –agree-tos</p>
 <p>如果成功获取证书，你的密钥和证书存放在 /etc/letsencrypt/live/sub.domain.com/ 目录：</p>
 <pre><code>ll /etc/letsencrypt/live/sub.domain.com/
 
@@ -581,9 +581,14 @@ add_header Strict-Transport-Security max-age=15768000;
                 console.error('Failed to save visitor count', error);
               });
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
           }
         })
         .catch(error => {
@@ -610,7 +615,7 @@ add_header Strict-Transport-Security max-age=15768000;
         });
     }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"E6mItwilz3d4OMydXyfmNzOU-gzGzoHsz","app_key":"30pReUEU9dQpvlc8kfxETY6p","server_url":null,"security":true};
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"E6mItwilz3d4OMydXyfmNzOU-gzGzoHsz","app_key":"30pReUEU9dQpvlc8kfxETY6p","server_url":null,"security":false};
     function fetchData(api_server) {
       var Counter = (method, url, data) => {
         return fetch(`${api_server}/1.1${url}`, {
