@@ -191,6 +191,145 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://nontech.top/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Uray Chow">
+      <meta itemprop="description" content="热爱技术，但不精通">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NON-TECH">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/" class="post-title-link" itemprop="url">git 子模块 submodule 添加-使用-删除</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-06 10:30:52 / Modified: 11:26:10" itemprop="dateCreated datePublished" datetime="2021-02-06T10:30:52+08:00">2021-02-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6-git/" itemprop="url" rel="index"><span itemprop="name">计算机科学 git</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/" class="post-meta-item leancloud_visitors" data-flag-title="git 子模块 submodule 添加-使用-删除" title="Hot">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Hot: </span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>刚开始搞blog，使用 hexo 的 next 模板的时候，直接从github上拉了代码，这样在我的仓库下面就有了另外一个仓库。为了能尽量避坑，搜索了一些前人的经验，记录于此。</strong></p>
+<h2 id="子模块添加"><a href="#子模块添加" class="headerlink" title="子模块添加"></a>子模块添加</h2><p>执行如下命令：</p>
+<pre><code>git submodule add https://github.com/next-theme/hexo-theme-next.git &lt;yourpath/modulename&gt;
+</code></pre>
+<p>例：</p>
+<pre><code>git submodule add https://github.com/next-theme/hexo-theme-next.git themes/hexo-theme-next/
+</code></pre>
+<p>就会生成以下文件：</p>
+<pre><code>/.gitmodules
+/yourpath
+/.git/modules/&lt;modulename&gt;(不知道为啥第二次我这里没有生成)
+</code></pre>
+<p>影响以下文件：</p>
+<pre><code>/.git/config文件会增加 submodule 的条目
+</code></pre>
+<p>查看修改内容即可看到上述修改:</p>
+<pre><code>git diff --cached
+</code></pre>
+<p>提交以完成添加：</p>
+<pre><code>git commit
+</code></pre>
+<h2 id="子模块使用"><a href="#子模块使用" class="headerlink" title="子模块使用"></a>子模块使用</h2><p>如果是自己新建的子模块这时路径下还没有代码，需要初始化：</p>
+<pre><code>git submodule init
+git submodule update
+</code></pre>
+<p>如果是用别人的仓库，这时应该就已经有了代码。</p>
+<h2 id="子模块的更新"><a href="#子模块的更新" class="headerlink" title="子模块的更新"></a>子模块的更新</h2><p>子模块的维护者提交更新后，我们要自己去手动获取更新，在父仓库目录：</p>
+<h3 id="PULL"><a href="#PULL" class="headerlink" title="PULL"></a>PULL</h3><p>更新别人加的 submodule：</p>
+<pre><code>git pull
+git submodule init
+git submodule update
+</code></pre>
+<p>更新某个 submodule：</p>
+<pre><code>git submodule update -- &lt;path&gt;
+</code></pre>
+<p>一次更新全部：</p>
+<pre><code>git submodule foreach git pull origin master
+</code></pre>
+<h3 id="PUSH"><a href="#PUSH" class="headerlink" title="PUSH"></a>PUSH</h3><p>~ 先在 submodule 的目录下 push (单独更新 submodule)<br>~ 然后在父仓库的目录下 push (更新父仓库的 submodule)</p>
+<h2 id="子模块的删除"><a href="#子模块的删除" class="headerlink" title="子模块的删除"></a>子模块的删除</h2><p>这个过程有点麻烦，要分别删除添加子模块时生成的那些</p>
+<p>~ 删除子模块目录及源码；</p>
+<p>~ 删除 /.gitmodules 文件中目标子模块相关条目；</p>
+<p>~ 删除 /.git/config 中目标子模块相关条目；</p>
+<p>~ 删除 /.git/modules/ 目标子模块目录，每个子模块对应一个目录。</p>
+<h4 id="最后，请记得清除缓存"><a href="#最后，请记得清除缓存" class="headerlink" title="最后，请记得清除缓存"></a><em>最后，请记得清除缓存</em></h4><pre><code>git rm --cached 子模块名称
+</code></pre>
+<p>完成删除后，提交到仓库即可</p>
+<pre><code>git commit
+</code></pre>
+<p>Tips: <em>这样做应该有一些好处，我还没学到，随后更新吧。</em></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://nontech.top/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -763,16 +902,16 @@ systemctl status firewalld
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

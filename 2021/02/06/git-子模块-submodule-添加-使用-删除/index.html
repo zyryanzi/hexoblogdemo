@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"nontech.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="热爱技术，但不精通">
-<meta property="og:type" content="website">
-<meta property="og:title" content="NON-TECH">
-<meta property="og:url" content="http://nontech.top/archives/index.html">
+  <meta name="description" content="刚开始搞blog，使用 hexo 的 next 模板的时候，直接从github上拉了代码，这样在我的仓库下面就有了另外一个仓库。为了能尽量避坑，搜索了一些前人的经验，记录于此。 子模块添加执行如下命令： git submodule add https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next.git &lt;yourpath&#x2F;modulename&gt;  例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git 子模块 submodule 添加-使用-删除">
+<meta property="og:url" content="http://nontech.top/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/index.html">
 <meta property="og:site_name" content="NON-TECH">
-<meta property="og:description" content="热爱技术，但不精通">
+<meta property="og:description" content="刚开始搞blog，使用 hexo 的 next 模板的时候，直接从github上拉了代码，这样在我的仓库下面就有了另外一个仓库。为了能尽量避坑，搜索了一些前人的经验，记录于此。 子模块添加执行如下命令： git submodule add https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next.git &lt;yourpath&#x2F;modulename&gt;  例">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-06T02:30:52.000Z">
+<meta property="article:modified_time" content="2021-02-06T03:26:10.401Z">
 <meta property="article:author" content="Uray Chow">
-<meta property="article:tag" content="技术,technology,drilling,钻探,探矿,exploration">
+<meta property="article:tag" content="ready-go">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://nontech.top/archives/">
+<link rel="canonical" href="http://nontech.top/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/">
 
 
 <script id="page-configurations">
@@ -39,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | NON-TECH</title>
+  <title>git 子模块 submodule 添加-使用-删除 | NON-TECH</title>
   
 
 
@@ -185,156 +187,167 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://nontech.top/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Uray Chow">
+      <meta itemprop="description" content="热爱技术，但不精通">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NON-TECH">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          git 子模块 submodule 添加-使用-删除
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-06 10:30:52 / Modified: 11:26:10" itemprop="dateCreated datePublished" datetime="2021-02-06T10:30:52+08:00">2021-02-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6-git/" itemprop="url" rel="index"><span itemprop="name">计算机科学 git</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/" class="post-meta-item leancloud_visitors" data-flag-title="git 子模块 submodule 添加-使用-删除" title="Hot">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Hot: </span>
+              <span class="leancloud-visitors-count"></span>
+              <span>℃</span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 6 posts in total. Keep on posting.</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-06T10:30:52+08:00"
-              content="2021-02-06">
-          02-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/" itemprop="url">
-            <span itemprop="name">git 子模块 submodule 添加-使用-删除</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-03T10:46:17+08:00"
-              content="2021-02-03">
-          02-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/" itemprop="url">
-            <span itemprop="name">centos7-certbot-python2-版本坑</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-02T11:17:21+08:00"
-              content="2021-02-02">
-          02-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/02/centos7-let-s-encrypt/" itemprop="url">
-            <span itemprop="name">centos7 let's encrypt</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-01T16:56:21+08:00"
-              content="2021-02-01">
-          02-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/01/Vue-2-3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" itemprop="url">
-            <span itemprop="name">Vue 2->3 生命周期</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-01T16:19:56+08:00"
-              content="2021-02-01">
-          02-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/01/firewalld-%E9%98%B2%E7%81%AB%E5%A2%99-%E6%90%AC%E8%BF%90/" itemprop="url">
-            <span itemprop="name">firewalld-防火墙 - 搬运</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-30T17:26:03+08:00"
-              content="2021-01-30">
-          01-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/30/A-useful-link-Classmate-Wang/" itemprop="url">
-            <span itemprop="name">Useful links</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p><strong>刚开始搞blog，使用 hexo 的 next 模板的时候，直接从github上拉了代码，这样在我的仓库下面就有了另外一个仓库。为了能尽量避坑，搜索了一些前人的经验，记录于此。</strong></p>
+<h2 id="子模块添加"><a href="#子模块添加" class="headerlink" title="子模块添加"></a>子模块添加</h2><p>执行如下命令：</p>
+<pre><code>git submodule add https://github.com/next-theme/hexo-theme-next.git &lt;yourpath/modulename&gt;
+</code></pre>
+<p>例：</p>
+<pre><code>git submodule add https://github.com/next-theme/hexo-theme-next.git themes/hexo-theme-next/
+</code></pre>
+<p>就会生成以下文件：</p>
+<pre><code>/.gitmodules
+/yourpath
+/.git/modules/&lt;modulename&gt;(不知道为啥第二次我这里没有生成)
+</code></pre>
+<p>影响以下文件：</p>
+<pre><code>/.git/config文件会增加 submodule 的条目
+</code></pre>
+<p>查看修改内容即可看到上述修改:</p>
+<pre><code>git diff --cached
+</code></pre>
+<p>提交以完成添加：</p>
+<pre><code>git commit
+</code></pre>
+<h2 id="子模块使用"><a href="#子模块使用" class="headerlink" title="子模块使用"></a>子模块使用</h2><p>如果是自己新建的子模块这时路径下还没有代码，需要初始化：</p>
+<pre><code>git submodule init
+git submodule update
+</code></pre>
+<p>如果是用别人的仓库，这时应该就已经有了代码。</p>
+<h2 id="子模块的更新"><a href="#子模块的更新" class="headerlink" title="子模块的更新"></a>子模块的更新</h2><p>子模块的维护者提交更新后，我们要自己去手动获取更新，在父仓库目录：</p>
+<h3 id="PULL"><a href="#PULL" class="headerlink" title="PULL"></a>PULL</h3><p>更新别人加的 submodule：</p>
+<pre><code>git pull
+git submodule init
+git submodule update
+</code></pre>
+<p>更新某个 submodule：</p>
+<pre><code>git submodule update -- &lt;path&gt;
+</code></pre>
+<p>一次更新全部：</p>
+<pre><code>git submodule foreach git pull origin master
+</code></pre>
+<h3 id="PUSH"><a href="#PUSH" class="headerlink" title="PUSH"></a>PUSH</h3><p>~ 先在 submodule 的目录下 push (单独更新 submodule)<br>~ 然后在父仓库的目录下 push (更新父仓库的 submodule)</p>
+<h2 id="子模块的删除"><a href="#子模块的删除" class="headerlink" title="子模块的删除"></a>子模块的删除</h2><p>这个过程有点麻烦，要分别删除添加子模块时生成的那些</p>
+<p>~ 删除子模块目录及源码；</p>
+<p>~ 删除 /.gitmodules 文件中目标子模块相关条目；</p>
+<p>~ 删除 /.git/config 中目标子模块相关条目；</p>
+<p>~ 删除 /.git/modules/ 目标子模块目录，每个子模块对应一个目录。</p>
+<h4 id="最后，请记得清除缓存"><a href="#最后，请记得清除缓存" class="headerlink" title="最后，请记得清除缓存"></a><em>最后，请记得清除缓存</em></h4><pre><code>git rm --cached 子模块名称
+</code></pre>
+<p>完成删除后，提交到仓库即可</p>
+<pre><code>git commit
+</code></pre>
+<p>Tips: <em>这样做应该有一些好处，我还没学到，随后更新吧。</em></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ready-go/" rel="tag"><i class="fa fa-tag"></i> ready-go</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/" rel="prev" title="centos7-certbot-python2-版本坑">
+      <i class="fa fa-chevron-left"></i> centos7-certbot-python2-版本坑
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -381,6 +394,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E6%A8%A1%E5%9D%97%E6%B7%BB%E5%8A%A0"><span class="nav-number">1.</span> <span class="nav-text">子模块添加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">子模块使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E6%9B%B4%E6%96%B0"><span class="nav-number">3.</span> <span class="nav-text">子模块的更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PULL"><span class="nav-number">3.1.</span> <span class="nav-text">PULL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PUSH"><span class="nav-number">3.2.</span> <span class="nav-text">PUSH</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E5%88%A0%E9%99%A4"><span class="nav-number">4.</span> <span class="nav-text">子模块的删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%EF%BC%8C%E8%AF%B7%E8%AE%B0%E5%BE%97%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98"><span class="nav-number">4.0.1.</span> <span class="nav-text">最后，请记得清除缓存</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

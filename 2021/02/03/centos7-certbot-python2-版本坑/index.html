@@ -278,7 +278,7 @@
 <pre><code>yum install certbot-nginx
 </code></pre>
 <p>以为到这里万事大吉，结果在执行以下命令时：</p>
-<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#120;&#x78;&#x78;&#x78;&#120;&#x78;&#64;&#x78;&#x78;&#x78;&#46;&#99;&#111;&#109;">&#120;&#x78;&#x78;&#x78;&#120;&#x78;&#64;&#x78;&#x78;&#x78;&#46;&#99;&#111;&#109;</a> –agree-tos</p>
+<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#120;&#120;&#120;&#64;&#120;&#120;&#120;&#46;&#99;&#x6f;&#x6d;">&#x78;&#x78;&#120;&#120;&#120;&#120;&#64;&#120;&#120;&#120;&#46;&#99;&#x6f;&#x6d;</a> –agree-tos</p>
 <p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
 <p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
 <pre><code>python -m pip ......
@@ -315,7 +315,10 @@
     <a href="/2021/02/02/centos7-let-s-encrypt/" rel="prev" title="centos7 let's encrypt">
       <i class="fa fa-chevron-left"></i> centos7 let's encrypt
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/" rel="next" title="git 子模块 submodule 添加-使用-删除">
+      git 子模块 submodule 添加-使用-删除 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -390,16 +393,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
