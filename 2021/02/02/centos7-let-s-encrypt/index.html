@@ -328,7 +328,7 @@ yum install -y certbot
 -w 指定 webroot 目录
 -d domain 想要获取的证书域名，支持多个域名
 </code></pre>
-<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#120;&#120;&#x78;&#120;&#120;&#120;&#x40;&#120;&#x78;&#x78;&#46;&#x63;&#x6f;&#109;">&#120;&#120;&#x78;&#120;&#120;&#120;&#x40;&#120;&#x78;&#x78;&#46;&#x63;&#x6f;&#109;</a> –agree-tos</p>
+<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#x78;&#120;&#120;&#x40;&#x78;&#120;&#x78;&#46;&#99;&#x6f;&#x6d;">&#x78;&#x78;&#120;&#x78;&#120;&#120;&#x40;&#x78;&#120;&#x78;&#46;&#99;&#x6f;&#x6d;</a> –agree-tos</p>
 <p>如果成功获取证书，你的密钥和证书存放在 /etc/letsencrypt/live/sub.domain.com/ 目录：</p>
 <pre><code>ll /etc/letsencrypt/live/sub.domain.com/
 
@@ -534,11 +534,11 @@ add_header Strict-Transport-Security max-age=15768000;
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
 <script>
 NexT.utils.loadComments('.gitalk-container', () => {
-  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
       clientID    : '25a2d542a1a648119f94',
       clientSecret: '8381ae6f06625b2fe7dbc0450483b595c5c9d0c4',

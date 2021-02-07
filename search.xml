@@ -1,84 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Useful links</title>
-    <url>/2021/01/30/A-useful-link-Classmate-Wang/</url>
-    <content><![CDATA[<h2 id="一些干货满满的博客"><a href="#一些干货满满的博客" class="headerlink" title="一些干货满满的博客"></a>一些干货满满的博客</h2><h3 id="博哥的blog-https-www-xublog-wang"><a href="#博哥的blog-https-www-xublog-wang" class="headerlink" title="博哥的blog: https://www.xublog.wang"></a>博哥的blog: <em><a href="https://www.xublog.wang/">https://www.xublog.wang</a></em></h3><h3 id="不错的书房：https-www-kanshuv-com"><a href="#不错的书房：https-www-kanshuv-com" class="headerlink" title="不错的书房：https://www.kanshuv.com"></a>不错的书房：<em><a href="https://www.kanshuv.com/">https://www.kanshuv.com</a></em></h3><h3 id="不错的影院：https-dianying4k-com"><a href="#不错的影院：https-dianying4k-com" class="headerlink" title="不错的影院：https://dianying4k.com"></a>不错的影院：<em><a href="https://dianying4k.com/">https://dianying4k.com</a></em></h3>]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>别人的宝藏</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue 2-&gt;3 生命周期</title>
-    <url>/2021/02/01/Vue-2-3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
-    <content><![CDATA[<p>Vue2——————–&gt;vue3</p>
-<p>beforeCreate　　-&gt;　　setup()</p>
-<a id="more"></a>
-
-<p>created　　　　　-&gt;　　setup()</p>
-<p>beforeMount　　　-&gt;　onBeforeMount</p>
-<p>mounted　　　　　-&gt;　onMounted</p>
-<p>beforeUpdate　　-&gt;　　onBeforeUpdate</p>
-<p>updated　　　　　-&gt;　　onUpdated</p>
-<p>beforeDestroy　　-&gt;　　onBeforeUnmount</p>
-<p>destroyed　　　　-&gt;　　onUnmounted</p>
-<p>activated　　　　-&gt;　　onActivated</p>
-<p>deactivated　　　-&gt; 　onDeactivated</p>
-<p>errorCaptured　　-&gt; 　onErrorCaptured</p>
-]]></content>
-      <categories>
-        <category>计算机科学 前端 Vue</category>
-      </categories>
-      <tags>
-        <tag>别人的宝藏</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>centos7-certbot-python2-版本坑</title>
-    <url>/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/</url>
-    <content><![CDATA[<p><strong>centos7 系统</strong><br><strong>很多年前装的 python2 ；后来又装了python3 ；再后来使用了 pip ，默认包都是给python3用的</strong><br><strong>python2 的包一直没有更新</strong><br><strong>在使用 Let’s Ecrypt 生成SSL证书时，遇到了版本不兼容的坑</strong></p>
-<a id="more"></a>
-<p>首先 yum install certbot, yum 源中没有certbot，执行如下命令：</p>
-<pre><code>yum --enablerepo=extras install epel-release
-</code></pre>
-<p>提示没有命令： yum-config-manager。 百度搜到要执行以下命令先：</p>
-<pre><code>yum -y install yum-utils
-</code></pre>
-<p>然后更新 yum </p>
-<pre><code>yum -y upgrade
-</code></pre>
-<p>之后安装 certbot-nginx (听别人说要用这个)</p>
-<pre><code>yum install certbot-nginx
-</code></pre>
-<p>以为到这里万事大吉，结果在执行以下命令时：</p>
-<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#120;&#120;&#120;&#x78;&#x78;&#120;&#64;&#120;&#120;&#120;&#46;&#99;&#x6f;&#x6d;">&#120;&#120;&#120;&#x78;&#x78;&#120;&#64;&#120;&#120;&#120;&#46;&#99;&#x6f;&#x6d;</a> –agree-tos</p>
-<p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
-<p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
-<pre><code>python -m pip ......
-</code></pre>
-<p>于是我执行了：</p>
-<pre><code>python -m pip install --upgrade cryptography
-</code></pre>
-<p>结果告诉我不能升级，什么报错忘记了，然后执行了这条：</p>
-<pre><code>python -m pip install --upgrade pyOpenSSL --ignore-installed pyOpenSSL
-</code></pre>
-<p>结果其他几个用到的包也一并升级了。</p>
-<p>最后还遇到了一个小坑，更新了一下：</p>
-<pre><code>python -m pip install --update urllib3
-</code></pre>
-<p><strong>总结：</strong><br><strong>在填坑过程中，一定要仔细查看错误日志，很多细节的地方其实已经明示暗示多次，否则白白浪费时间</strong></p>
-]]></content>
-      <categories>
-        <category>计算机科学 系统</category>
-      </categories>
-      <tags>
-        <tag>别人的宝藏</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>centos7 let&#39;s encrypt</title>
     <url>/2021/02/02/centos7-let-s-encrypt/</url>
     <content><![CDATA[<p><em>转载于：<a href="https://my.oschina.net/u/174201/blog/1577784">https://my.oschina.net/u/174201/blog/1577784</a></em></p>
@@ -104,7 +26,7 @@ yum install -y certbot
 -w 指定 webroot 目录
 -d domain 想要获取的证书域名，支持多个域名
 </code></pre>
-<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#120;&#120;&#x78;&#120;&#120;&#120;&#x40;&#120;&#x78;&#x78;&#46;&#x63;&#x6f;&#109;">&#120;&#120;&#x78;&#120;&#120;&#120;&#x40;&#120;&#x78;&#x78;&#46;&#x63;&#x6f;&#109;</a> –agree-tos</p>
+<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#x78;&#120;&#120;&#x40;&#x78;&#120;&#x78;&#46;&#99;&#x6f;&#x6d;">&#x78;&#x78;&#120;&#x78;&#120;&#120;&#x40;&#x78;&#120;&#x78;&#46;&#99;&#x6f;&#x6d;</a> –agree-tos</p>
 <p>如果成功获取证书，你的密钥和证书存放在 /etc/letsencrypt/live/sub.domain.com/ 目录：</p>
 <pre><code>ll /etc/letsencrypt/live/sub.domain.com/
 
@@ -204,6 +126,84 @@ add_header Strict-Transport-Security max-age=15768000;
 <p>–pre-hook 这个参数表示执行更新操作之前要做的事情<br>–post-hook 这个参数表示执行更新操作完成后要做的事情</p>
 <h3 id="启动-crontab-定时任务"><a href="#启动-crontab-定时任务" class="headerlink" title="启动 crontab 定时任务"></a>启动 crontab 定时任务</h3><pre><code>crontab certbot-auto-renew-cron
 </code></pre>
+]]></content>
+      <categories>
+        <category>计算机科学 系统</category>
+      </categories>
+      <tags>
+        <tag>别人的宝藏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Useful links</title>
+    <url>/2021/01/30/A-useful-link-Classmate-Wang/</url>
+    <content><![CDATA[<h2 id="一些干货满满的博客"><a href="#一些干货满满的博客" class="headerlink" title="一些干货满满的博客"></a>一些干货满满的博客</h2><h3 id="博哥的blog-https-www-xublog-wang"><a href="#博哥的blog-https-www-xublog-wang" class="headerlink" title="博哥的blog: https://www.xublog.wang"></a>博哥的blog: <em><a href="https://www.xublog.wang/">https://www.xublog.wang</a></em></h3><h3 id="不错的书房：https-www-kanshuv-com"><a href="#不错的书房：https-www-kanshuv-com" class="headerlink" title="不错的书房：https://www.kanshuv.com"></a>不错的书房：<em><a href="https://www.kanshuv.com/">https://www.kanshuv.com</a></em></h3><h3 id="不错的影院：https-dianying4k-com"><a href="#不错的影院：https-dianying4k-com" class="headerlink" title="不错的影院：https://dianying4k.com"></a>不错的影院：<em><a href="https://dianying4k.com/">https://dianying4k.com</a></em></h3>]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>别人的宝藏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue 2-&gt;3 生命周期</title>
+    <url>/2021/02/01/Vue-2-3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    <content><![CDATA[<p>Vue2——————–&gt;vue3</p>
+<p>beforeCreate　　-&gt;　　setup()</p>
+<a id="more"></a>
+
+<p>created　　　　　-&gt;　　setup()</p>
+<p>beforeMount　　　-&gt;　onBeforeMount</p>
+<p>mounted　　　　　-&gt;　onMounted</p>
+<p>beforeUpdate　　-&gt;　　onBeforeUpdate</p>
+<p>updated　　　　　-&gt;　　onUpdated</p>
+<p>beforeDestroy　　-&gt;　　onBeforeUnmount</p>
+<p>destroyed　　　　-&gt;　　onUnmounted</p>
+<p>activated　　　　-&gt;　　onActivated</p>
+<p>deactivated　　　-&gt; 　onDeactivated</p>
+<p>errorCaptured　　-&gt; 　onErrorCaptured</p>
+]]></content>
+      <categories>
+        <category>计算机科学 前端 Vue</category>
+      </categories>
+      <tags>
+        <tag>别人的宝藏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>centos7-certbot-python2-版本坑</title>
+    <url>/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/</url>
+    <content><![CDATA[<p><strong>centos7 系统</strong><br><strong>很多年前装的 python2 ；后来又装了python3 ；再后来使用了 pip ，默认包都是给python3用的</strong><br><strong>python2 的包一直没有更新</strong><br><strong>在使用 Let’s Ecrypt 生成SSL证书时，遇到了版本不兼容的坑</strong></p>
+<a id="more"></a>
+<p>首先 yum install certbot, yum 源中没有certbot，执行如下命令：</p>
+<pre><code>yum --enablerepo=extras install epel-release
+</code></pre>
+<p>提示没有命令： yum-config-manager。 百度搜到要执行以下命令先：</p>
+<pre><code>yum -y install yum-utils
+</code></pre>
+<p>然后更新 yum </p>
+<pre><code>yum -y upgrade
+</code></pre>
+<p>之后安装 certbot-nginx (听别人说要用这个)</p>
+<pre><code>yum install certbot-nginx
+</code></pre>
+<p>以为到这里万事大吉，结果在执行以下命令时：</p>
+<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#120;&#x78;&#120;&#x78;&#x78;&#120;&#64;&#120;&#120;&#120;&#x2e;&#x63;&#x6f;&#x6d;">&#120;&#x78;&#120;&#x78;&#x78;&#120;&#64;&#120;&#120;&#120;&#x2e;&#x63;&#x6f;&#x6d;</a> –agree-tos</p>
+<p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
+<p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
+<pre><code>python -m pip ......
+</code></pre>
+<p>于是我执行了：</p>
+<pre><code>python -m pip install --upgrade cryptography
+</code></pre>
+<p>结果告诉我不能升级，什么报错忘记了，然后执行了这条：</p>
+<pre><code>python -m pip install --upgrade pyOpenSSL --ignore-installed pyOpenSSL
+</code></pre>
+<p>结果其他几个用到的包也一并升级了。</p>
+<p>最后还遇到了一个小坑，更新了一下：</p>
+<pre><code>python -m pip install --update urllib3
+</code></pre>
+<p><strong>总结：</strong><br><strong>在填坑过程中，一定要仔细查看错误日志，很多细节的地方其实已经明示暗示多次，否则白白浪费时间</strong></p>
 ]]></content>
       <categories>
         <category>计算机科学 系统</category>
