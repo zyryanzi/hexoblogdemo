@@ -23,21 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"nontech.top","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"text":"Load Disqus","order":-1},"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Vue2——————–&gt;vue3 beforeCreate　　-&gt;　　setup()">
+<meta name="description" content="安装准备下载 nginx 源码进入目标路径，例如 &#x2F;usr&#x2F;local yum install -y wget wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.9.9.tar.gz">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue 2-&gt;3 生命周期">
-<meta property="og:url" content="http://nontech.top/2021/02/01/Vue-2-3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+<meta property="og:title" content="centos7-nginx-setup">
+<meta property="og:url" content="http://nontech.top/2021/02/12/centos7-nginx-setup/index.html">
 <meta property="og:site_name" content="NON-TECH">
-<meta property="og:description" content="Vue2——————–&gt;vue3 beforeCreate　　-&gt;　　setup()">
+<meta property="og:description" content="安装准备下载 nginx 源码进入目标路径，例如 &#x2F;usr&#x2F;local yum install -y wget wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.9.9.tar.gz">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-02-01T08:56:21.000Z">
-<meta property="article:modified_time" content="2021-02-22T08:27:35.103Z">
+<meta property="article:published_time" content="2021-02-12T10:04:22.000Z">
+<meta property="article:modified_time" content="2021-02-22T08:26:51.339Z">
 <meta property="article:author" content="Uray Chow">
-<meta property="article:tag" content="他山之玉">
+<meta property="article:tag" content="ready-go">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://nontech.top/2021/02/01/Vue-2-3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+<link rel="canonical" href="http://nontech.top/2021/02/12/centos7-nginx-setup/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
     lang   : 'en'
   };
 </script>
-<title>Vue 2->3 生命周期 | NON-TECH</title>
+<title>centos7-nginx-setup | NON-TECH</title>
   
 
 
@@ -175,7 +175,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -188,6 +188,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">安装准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD-nginx-%E6%BA%90%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">下载 nginx 源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5-%E5%AE%89%E8%A3%85-gcc-%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">检查&#x2F;安装 gcc(编译器)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-pcre%E3%80%81pcre-devel-%EF%BC%88%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%89%E8%A3%85%E4%BF%A9%EF%BC%9F%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">安装 pcre、pcre-devel （为什么安装俩？）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-zlib"><span class="nav-number">1.4.</span> <span class="nav-text">安装 zlib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-openssl"><span class="nav-number">1.5.</span> <span class="nav-text">安装 openssl</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-nginx"><span class="nav-number">2.</span> <span class="nav-text">安装 nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B-nginx"><span class="nav-number">2.1.</span> <span class="nav-text">解压 nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#make-nginx"><span class="nav-number">2.2.</span> <span class="nav-text">make nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">检查配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1%E5%99%A8IP"><span class="nav-number">2.4.</span> <span class="nav-text">访问服务器IP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%EF%BC%88%E8%A7%84%E8%8C%83%E5%90%AF%E5%81%9C%E6%9C%8D%E5%8A%A1%E6%93%8D%E4%BD%9C%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">配置服务（规范启停服务操作）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%88%90"><span class="nav-number">5.</span> <span class="nav-text">完成</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -276,7 +277,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://nontech.top/2021/02/01/Vue-2-3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+    <link itemprop="mainEntityOfPage" href="http://nontech.top/2021/02/12/centos7-nginx-setup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -289,7 +290,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Vue 2->3 生命周期
+          centos7-nginx-setup
         </h1>
 
         <div class="post-meta-container">
@@ -300,14 +301,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-02-01 16:56:21" itemprop="dateCreated datePublished" datetime="2021-02-01T16:56:21+08:00">2021-02-01</time>
+      <time title="Created: 2021-02-12 18:04:22" itemprop="dateCreated datePublished" datetime="2021-02-12T18:04:22+08:00">2021-02-12</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-02-22 16:27:35" itemprop="dateModified" datetime="2021-02-22T16:27:35+08:00">2021-02-22</time>
+        <time title="Modified: 2021-02-22 16:26:51" itemprop="dateModified" datetime="2021-02-22T16:26:51+08:00">2021-02-22</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -315,7 +316,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6-%E5%89%8D%E7%AB%AF-Vue/" itemprop="url" rel="index"><span itemprop="name">计算机科学 - 前端 - Vue</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6-nginx/" itemprop="url" rel="index"><span itemprop="name">计算机科学 - nginx</span></a>
         </span>
     </span>
 
@@ -328,8 +329,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/01/Vue-2-3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/01/Vue-2-3-生命周期/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/12/centos7-nginx-setup/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/12/centos7-nginx-setup/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -343,20 +344,76 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Vue2——————–&gt;vue3</p>
-<p>beforeCreate　　-&gt;　　setup()</p>
+        <h2 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h2><h3 id="下载-nginx-源码"><a href="#下载-nginx-源码" class="headerlink" title="下载 nginx 源码"></a>下载 nginx 源码</h3><pre><code>进入目标路径，例如 /usr/local
+yum install -y wget
+wget http://nginx.org/download/nginx-1.9.9.tar.gz
+</code></pre>
 <a id="more"></a>
+<h3 id="检查-安装-gcc-编译器"><a href="#检查-安装-gcc-编译器" class="headerlink" title="检查/安装 gcc(编译器)"></a>检查/安装 gcc(编译器)</h3><pre><code>gcc -v
+yum -y install gcc
+</code></pre>
+<h3 id="安装-pcre、pcre-devel-（为什么安装俩？）"><a href="#安装-pcre、pcre-devel-（为什么安装俩？）" class="headerlink" title="安装 pcre、pcre-devel （为什么安装俩？）"></a>安装 pcre、pcre-devel （为什么安装俩？）</h3><pre><code>yum install -y pcre pcre-devel
+</code></pre>
+<p>pcre 是一个 perl 库，包括 perl 兼容的正则表达式库，nginx 的 http 模块使用 pcre 来解析正则表达式</p>
+<h3 id="安装-zlib"><a href="#安装-zlib" class="headerlink" title="安装 zlib"></a>安装 zlib</h3><pre><code>yum install -y zlib zlib-devel
+</code></pre>
+<p>zlib 库提供了很多种压缩和解压缩方式，nginx 使用 zlib 对 http 包的内容进行 gzip</p>
+<h3 id="安装-openssl"><a href="#安装-openssl" class="headerlink" title="安装 openssl"></a>安装 openssl</h3><pre><code>yum install -y openssl openssl-devel
+</code></pre>
+<p>openssl是web安全通信的基石，大神说禁止裸奔</p>
+<h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><h3 id="解压-nginx"><a href="#解压-nginx" class="headerlink" title="解压 nginx"></a>解压 nginx</h3><pre><code>tar -zxvf  nginx-1.9.9.tar.gz
+并进入 nginx-1.9.9
+</code></pre>
+<h3 id="make-nginx"><a href="#make-nginx" class="headerlink" title="make nginx"></a>make nginx</h3><p>~ 执行 ./configure, 如果有需要的模块，跟在后面，例如：</p>
+<pre><code>./configure --with-http_image_filter_module
+</code></pre>
+<p>可能会报错，关于 GD 的，那么需要执行下面的语句，再执行 ./configure –xxx</p>
+<pre><code>yum install -y gd gd-devel
+</code></pre>
+<p>~ 依次执行 make，make install</p>
+<h3 id="检查配置文件"><a href="#检查配置文件" class="headerlink" title="检查配置文件"></a>检查配置文件</h3><p>查看 /usr/local/nginx/conf/nginx.conf，80端口是否配置；<br>进入 /usr/local/nginx/sbin 目录，执行命令启动nginx, 并查看是否成功:</p>
+<pre><code>./nginx
+ps -ef | grep nginx
+</code></pre>
+<h3 id="访问服务器IP"><a href="#访问服务器IP" class="headerlink" title="访问服务器IP"></a>访问服务器IP</h3><pre><code>出现： Welcom to nginx 页面
+</code></pre>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>因为经常要执行 nginx 命令，每次都进入 nginx 文件夹很不方便，因此配置环境变量会方便些，执行</p>
+<pre><code>vim /etc/profile
+</code></pre>
+<p>在末尾添加两条语句：</p>
+<pre><code>PATH=$PATH:/usr/local/nginx/sbin
+export PATH
+</code></pre>
+<p>保存退出后，需要执行一条语句使修改生效：</p>
+<pre><code>source /etc/profile
+</code></pre>
+<p>此后执行命令会方便很多，如：</p>
+<pre><code>nginx -t
+nginx -s reload
+nginx -s stop
+</code></pre>
+<h2 id="配置服务（规范启停服务操作）"><a href="#配置服务（规范启停服务操作）" class="headerlink" title="配置服务（规范启停服务操作）"></a>配置服务（规范启停服务操作）</h2><p>新建并编辑服务文件：</p>
+<pre><code>vim /usr/lib/systemd/system/nginx.service
 
-<p>created　　　　　-&gt;　　setup()</p>
-<p>beforeMount　　　-&gt;　onBeforeMount</p>
-<p>mounted　　　　　-&gt;　onMounted</p>
-<p>beforeUpdate　　-&gt;　　onBeforeUpdate</p>
-<p>updated　　　　　-&gt;　　onUpdated</p>
-<p>beforeDestroy　　-&gt;　　onBeforeUnmount</p>
-<p>destroyed　　　　-&gt;　　onUnmounted</p>
-<p>activated　　　　-&gt;　　onActivated</p>
-<p>deactivated　　　-&gt; 　onDeactivated</p>
-<p>errorCaptured　　-&gt; 　onErrorCaptured</p>
+内容如下：
+[Unit]
+Description=nginx - high performance web server
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/usr/local/nginx/logs/nginx.pid
+ExecStartPre=/usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf
+ExecStart=/usr/local/nginx/sbin/nginx
+ExecReload=/usr/local/nginx/sbin/nginx -s reload
+ExecStop=/usr/local/nginx/sbin/nginx -s stop
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>保存退出（我试了，停止不了，也许我哪里搞得不对，慢慢再看了）</p>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p><em>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37345604/article/details/90034424">https://blog.csdn.net/qq_37345604/article/details/90034424</a></em></p>
 
     </div>
 
@@ -383,20 +440,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E4%BB%96%E5%B1%B1%E4%B9%8B%E7%8E%89/" rel="tag"><i class="fa fa-tag"></i> 他山之玉</a>
+              <a href="/tags/ready-go/" rel="tag"><i class="fa fa-tag"></i> ready-go</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/02/01/firewalld-%E9%98%B2%E7%81%AB%E5%A2%99-%E6%90%AC%E8%BF%90/" rel="prev" title="firewalld-防火墙 - 搬运">
-                  <i class="fa fa-chevron-left"></i> firewalld-防火墙 - 搬运
+                <a href="/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/" rel="prev" title="git 子模块 submodule 添加-使用-删除">
+                  <i class="fa fa-chevron-left"></i> git 子模块 submodule 添加-使用-删除
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/02/02/centos7-let-s-encrypt/" rel="next" title="centos7 let's encrypt">
-                  centos7 let's encrypt <i class="fa fa-chevron-right"></i>
+                <a href="/2021/02/13/centos7-v2ray-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85/" rel="next" title="centos7 v2ray 一键安装">
+                  centos7 v2ray 一键安装 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -497,9 +554,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://nontech.top/2021/02/01/Vue-2-3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/";
-    this.page.identifier = "2021/02/01/Vue-2-3-生命周期/";
-    this.page.title = "Vue 2->3 生命周期";
+    this.page.url = "http://nontech.top/2021/02/12/centos7-nginx-setup/";
+    this.page.identifier = "2021/02/12/centos7-nginx-setup/";
+    this.page.title = "centos7-nginx-setup";
     };
   NexT.utils.loadComments('#disqus_thread', () => {
     if (window.DISQUS) {
