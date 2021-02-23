@@ -65,7 +65,8 @@ export LD_LIBRARY_PATH=&quot;/home/[username]/anaconda3/lib:LD_LIBRARY_PATH&quot
 <p>至此可以开始使用 anaconda 了。</p>
 ]]></content>
       <categories>
-        <category>计算机科学 - Python</category>
+        <category>计算机科学</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Anaconda</tag>
@@ -93,11 +94,57 @@ export LD_LIBRARY_PATH=&quot;/home/[username]/anaconda3/lib:LD_LIBRARY_PATH&quot
 <p>errorCaptured　　-&gt; 　onErrorCaptured</p>
 ]]></content>
       <categories>
-        <category>计算机科学 - 前端 - Vue</category>
+        <category>计算机科学</category>
+        <category>前端</category>
+        <category>Vue</category>
       </categories>
       <tags>
         <tag>vue3</tag>
         <tag>vue3变更</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>centos7-certbot-python2-版本坑</title>
+    <url>/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/</url>
+    <content><![CDATA[<p><em>centos7 系统，默认装的 python2，后来又装了python3</em><br><em>使用了 pip，默认包都是给python3用的，python2 的包一直没有更新</em><br><em>在使用 Let’s Ecrypt 生成SSL证书时，遇到了版本不兼容的坑</em></p>
+<a id="more"></a>
+<p>首先 yum install certbot, yum 源中没有certbot，执行如下命令：</p>
+<pre><code>yum --enablerepo=extras install epel-release
+</code></pre>
+<p>提示没有命令： yum-config-manager。 百度搜到要执行以下命令先：</p>
+<pre><code>yum -y install yum-utils
+</code></pre>
+<p>然后更新 yum </p>
+<pre><code>yum -y upgrade
+</code></pre>
+<p>之后安装 certbot-nginx (听别人说要用这个)</p>
+<pre><code>yum install certbot-nginx
+</code></pre>
+<p>以为到这里万事大吉，结果在执行以下命令时：</p>
+<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#120;&#120;&#120;&#64;&#x78;&#x78;&#x78;&#46;&#x63;&#111;&#109;">&#x78;&#x78;&#120;&#120;&#120;&#120;&#64;&#x78;&#x78;&#x78;&#46;&#x63;&#111;&#109;</a> –agree-tos</p>
+<p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
+<p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
+<pre><code>python -m pip ......
+</code></pre>
+<p>于是我执行了：</p>
+<pre><code>python -m pip install --upgrade cryptography
+</code></pre>
+<p>结果告诉我不能升级，什么报错忘记了，然后执行了这条：</p>
+<pre><code>python -m pip install --upgrade pyOpenSSL --ignore-installed pyOpenSSL
+</code></pre>
+<p>结果其他几个用到的包也一并升级了。</p>
+<p>最后还遇到了一个小坑，更新了一下：</p>
+<pre><code>python -m pip install --update urllib3
+</code></pre>
+<p><strong>总结：</strong><br><strong>在填坑过程中，一定要仔细查看错误日志，很多细节的地方其实已经明示暗示多次，否则白白浪费时间</strong></p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>系统</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>python2</tag>
       </tags>
   </entry>
   <entry>
@@ -127,7 +174,7 @@ yum install -y certbot
 -w 指定 webroot 目录
 -d domain 想要获取的证书域名，支持多个域名
 </code></pre>
-<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#120;&#120;&#x78;&#x40;&#x78;&#120;&#x78;&#46;&#x63;&#x6f;&#109;">&#x78;&#x78;&#120;&#120;&#120;&#x78;&#x40;&#x78;&#120;&#x78;&#46;&#x63;&#x6f;&#109;</a> –agree-tos</p>
+<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#120;&#x78;&#x78;&#120;&#120;&#x40;&#120;&#120;&#120;&#x2e;&#99;&#111;&#109;">&#x78;&#120;&#x78;&#x78;&#120;&#120;&#x40;&#120;&#120;&#120;&#x2e;&#99;&#111;&#109;</a> –agree-tos</p>
 <p>如果成功获取证书，你的密钥和证书存放在 /etc/letsencrypt/live/sub.domain.com/ 目录：</p>
 <pre><code>ll /etc/letsencrypt/live/sub.domain.com/
 
@@ -229,55 +276,13 @@ add_header Strict-Transport-Security max-age=15768000;
 </code></pre>
 ]]></content>
       <categories>
-        <category>计算机科学 - 系统</category>
+        <category>计算机科学</category>
+        <category>系统</category>
       </categories>
       <tags>
         <tag>Linux</tag>
         <tag>https</tag>
         <tag>ssl证书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>centos7-certbot-python2-版本坑</title>
-    <url>/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/</url>
-    <content><![CDATA[<p><em>centos7 系统，默认装的 python2，后来又装了python3</em><br><em>使用了 pip，默认包都是给python3用的，python2 的包一直没有更新</em><br><em>在使用 Let’s Ecrypt 生成SSL证书时，遇到了版本不兼容的坑</em></p>
-<a id="more"></a>
-<p>首先 yum install certbot, yum 源中没有certbot，执行如下命令：</p>
-<pre><code>yum --enablerepo=extras install epel-release
-</code></pre>
-<p>提示没有命令： yum-config-manager。 百度搜到要执行以下命令先：</p>
-<pre><code>yum -y install yum-utils
-</code></pre>
-<p>然后更新 yum </p>
-<pre><code>yum -y upgrade
-</code></pre>
-<p>之后安装 certbot-nginx (听别人说要用这个)</p>
-<pre><code>yum install certbot-nginx
-</code></pre>
-<p>以为到这里万事大吉，结果在执行以下命令时：</p>
-<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#120;&#120;&#120;&#120;&#120;&#x40;&#120;&#120;&#120;&#x2e;&#99;&#111;&#109;">&#x78;&#120;&#120;&#120;&#120;&#120;&#x40;&#120;&#120;&#120;&#x2e;&#99;&#111;&#109;</a> –agree-tos</p>
-<p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
-<p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
-<pre><code>python -m pip ......
-</code></pre>
-<p>于是我执行了：</p>
-<pre><code>python -m pip install --upgrade cryptography
-</code></pre>
-<p>结果告诉我不能升级，什么报错忘记了，然后执行了这条：</p>
-<pre><code>python -m pip install --upgrade pyOpenSSL --ignore-installed pyOpenSSL
-</code></pre>
-<p>结果其他几个用到的包也一并升级了。</p>
-<p>最后还遇到了一个小坑，更新了一下：</p>
-<pre><code>python -m pip install --update urllib3
-</code></pre>
-<p><strong>总结：</strong><br><strong>在填坑过程中，一定要仔细查看错误日志，很多细节的地方其实已经明示暗示多次，否则白白浪费时间</strong></p>
-]]></content>
-      <categories>
-        <category>计算机科学 - 系统</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>python2</tag>
       </tags>
   </entry>
   <entry>
@@ -357,7 +362,9 @@ WantedBy=multi-user.target
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p><em>参考链接：<a href="https://blog.csdn.net/qq_37345604/article/details/90034424">https://blog.csdn.net/qq_37345604/article/details/90034424</a></em></p>
 ]]></content>
       <categories>
-        <category>计算机科学 - nginx</category>
+        <category>计算机科学</category>
+        <category>网络技术</category>
+        <category>nginx</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -397,77 +404,13 @@ v2ray uninstall 卸载 V2Ray
 <p><em>参考链接：<a href="https://x.usbfu.com/%E5%AE%89%E8%A3%85-v2ray/">https://x.usbfu.com/%E5%AE%89%E8%A3%85-v2ray/</a></em></p>
 ]]></content>
       <categories>
-        <category>计算机科学 - 网络技术</category>
+        <category>计算机科学</category>
+        <category>网络技术</category>
       </categories>
       <tags>
         <tag>Linux</tag>
         <tag>v2ray</tag>
         <tag>一键安装</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git 子模块 submodule 添加-使用-删除</title>
-    <url>/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/</url>
-    <content><![CDATA[<p><em>刚开始搞blog，使用 hexo 的 next 模板的时候，直接从github上拉了代码，这样在我的仓库下面就有了另外一个仓库。为了能尽量避坑，搜索了一些前人的经验，记录于此。</em></p>
-<a id="more"></a>
-
-<h2 id="子模块添加"><a href="#子模块添加" class="headerlink" title="子模块添加"></a>子模块添加</h2><p>执行如下命令：</p>
-<pre><code>git submodule add https://github.com/next-theme/hexo-theme-next.git &lt;yourpath/modulename&gt;
-</code></pre>
-<p>例：</p>
-<pre><code>git submodule add https://github.com/next-theme/hexo-theme-next.git themes/hexo-theme-next/
-</code></pre>
-<p>就会生成以下文件：</p>
-<pre><code>/.gitmodules
-/yourpath
-/.git/modules/&lt;modulename&gt;(不知道为啥第二次我这里没有生成)
-</code></pre>
-<p>影响以下文件：</p>
-<pre><code>/.git/config文件会增加 submodule 的条目
-</code></pre>
-<p>查看修改内容即可看到上述修改:</p>
-<pre><code>git diff --cached
-</code></pre>
-<p>提交以完成添加：</p>
-<pre><code>git commit
-</code></pre>
-<h2 id="子模块使用"><a href="#子模块使用" class="headerlink" title="子模块使用"></a>子模块使用</h2><p>如果是自己新建的子模块这时路径下还没有代码，需要初始化：</p>
-<pre><code>git submodule init
-git submodule update
-</code></pre>
-<p>如果是用别人的仓库，这时应该就已经有了代码。</p>
-<h2 id="子模块的更新"><a href="#子模块的更新" class="headerlink" title="子模块的更新"></a>子模块的更新</h2><p>子模块的维护者提交更新后，我们要自己去手动获取更新，在父仓库目录：</p>
-<h3 id="PULL"><a href="#PULL" class="headerlink" title="PULL"></a>PULL</h3><p>更新别人加的 submodule：</p>
-<pre><code>git pull
-git submodule init
-git submodule update
-</code></pre>
-<p>更新某个 submodule：</p>
-<pre><code>git submodule update -- &lt;path&gt;
-</code></pre>
-<p>一次更新全部：</p>
-<pre><code>git submodule foreach git pull origin master
-</code></pre>
-<h3 id="PUSH"><a href="#PUSH" class="headerlink" title="PUSH"></a>PUSH</h3><p>~ 先在 submodule 的目录下 push (单独更新 submodule)<br>~ 然后在父仓库的目录下 push (更新父仓库的 submodule)</p>
-<h2 id="子模块的删除"><a href="#子模块的删除" class="headerlink" title="子模块的删除"></a>子模块的删除</h2><p>这个过程有点麻烦，要分别删除添加子模块时生成的那些</p>
-<p>~ 删除子模块目录及源码；</p>
-<p>~ 删除 /.gitmodules 文件中目标子模块相关条目；</p>
-<p>~ 删除 /.git/config 中目标子模块相关条目；</p>
-<p>~ 删除 /.git/modules/ 目标子模块目录，每个子模块对应一个目录。</p>
-<h4 id="最后，请记得清除缓存"><a href="#最后，请记得清除缓存" class="headerlink" title="最后，请记得清除缓存"></a><em>最后，请记得清除缓存</em></h4><pre><code>git rm --cached 子模块名称
-</code></pre>
-<p>完成删除后，提交到仓库即可</p>
-<pre><code>git commit
-</code></pre>
-<p>Tips: <em>这样做应该有一些好处，我还没学到，随后更新吧。</em></p>
-]]></content>
-      <categories>
-        <category>计算机科学 - git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>git子模块</tag>
-        <tag>submodule</tag>
       </tags>
   </entry>
   <entry>
@@ -544,13 +487,80 @@ firewall-cmd --query-panic
 </ol>
 ]]></content>
       <categories>
-        <category>计算机科学 - 系统</category>
+        <category>计算机科学</category>
+        <category>系统</category>
       </categories>
       <tags>
         <tag>Linux</tag>
         <tag>firewalld</tag>
         <tag>防火墙</tag>
         <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git 子模块 submodule 添加-使用-删除</title>
+    <url>/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/</url>
+    <content><![CDATA[<p><em>刚开始搞blog，使用 hexo 的 next 模板的时候，直接从github上拉了代码，这样在我的仓库下面就有了另外一个仓库。为了能尽量避坑，搜索了一些前人的经验，记录于此。</em></p>
+<a id="more"></a>
+
+<h2 id="子模块添加"><a href="#子模块添加" class="headerlink" title="子模块添加"></a>子模块添加</h2><p>执行如下命令：</p>
+<pre><code>git submodule add https://github.com/next-theme/hexo-theme-next.git &lt;yourpath/modulename&gt;
+</code></pre>
+<p>例：</p>
+<pre><code>git submodule add https://github.com/next-theme/hexo-theme-next.git themes/hexo-theme-next/
+</code></pre>
+<p>就会生成以下文件：</p>
+<pre><code>/.gitmodules
+/yourpath
+/.git/modules/&lt;modulename&gt;(不知道为啥第二次我这里没有生成)
+</code></pre>
+<p>影响以下文件：</p>
+<pre><code>/.git/config文件会增加 submodule 的条目
+</code></pre>
+<p>查看修改内容即可看到上述修改:</p>
+<pre><code>git diff --cached
+</code></pre>
+<p>提交以完成添加：</p>
+<pre><code>git commit
+</code></pre>
+<h2 id="子模块使用"><a href="#子模块使用" class="headerlink" title="子模块使用"></a>子模块使用</h2><p>如果是自己新建的子模块这时路径下还没有代码，需要初始化：</p>
+<pre><code>git submodule init
+git submodule update
+</code></pre>
+<p>如果是用别人的仓库，这时应该就已经有了代码。</p>
+<h2 id="子模块的更新"><a href="#子模块的更新" class="headerlink" title="子模块的更新"></a>子模块的更新</h2><p>子模块的维护者提交更新后，我们要自己去手动获取更新，在父仓库目录：</p>
+<h3 id="PULL"><a href="#PULL" class="headerlink" title="PULL"></a>PULL</h3><p>更新别人加的 submodule：</p>
+<pre><code>git pull
+git submodule init
+git submodule update
+</code></pre>
+<p>更新某个 submodule：</p>
+<pre><code>git submodule update -- &lt;path&gt;
+</code></pre>
+<p>一次更新全部：</p>
+<pre><code>git submodule foreach git pull origin master
+</code></pre>
+<h3 id="PUSH"><a href="#PUSH" class="headerlink" title="PUSH"></a>PUSH</h3><p>~ 先在 submodule 的目录下 push (单独更新 submodule)<br>~ 然后在父仓库的目录下 push (更新父仓库的 submodule)</p>
+<h2 id="子模块的删除"><a href="#子模块的删除" class="headerlink" title="子模块的删除"></a>子模块的删除</h2><p>这个过程有点麻烦，要分别删除添加子模块时生成的那些</p>
+<p>~ 删除子模块目录及源码；</p>
+<p>~ 删除 /.gitmodules 文件中目标子模块相关条目；</p>
+<p>~ 删除 /.git/config 中目标子模块相关条目；</p>
+<p>~ 删除 /.git/modules/ 目标子模块目录，每个子模块对应一个目录。</p>
+<h4 id="最后，请记得清除缓存"><a href="#最后，请记得清除缓存" class="headerlink" title="最后，请记得清除缓存"></a><em>最后，请记得清除缓存</em></h4><pre><code>git rm --cached 子模块名称
+</code></pre>
+<p>完成删除后，提交到仓库即可</p>
+<pre><code>git commit
+</code></pre>
+<p>Tips: <em>这样做应该有一些好处，我还没学到，随后更新吧。</em></p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>git子模块</tag>
+        <tag>submodule</tag>
       </tags>
   </entry>
   <entry>
@@ -631,7 +641,8 @@ hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;
 </code></pre>
 ]]></content>
       <categories>
-        <category>计算机科学 - hexo</category>
+        <category>计算机科学</category>
+        <category>hexo</category>
       </categories>
       <tags>
         <tag>hexo</tag>
@@ -646,7 +657,7 @@ hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;
 <a id="more"></a>
 <h3 id="打开-regedit"><a href="#打开-regedit" class="headerlink" title="打开 regedit"></a>打开 regedit</h3><pre><code>win + r -&gt; 输入 “regedit”
 </code></pre>
-<img src="/2021/02/23/windows-%E5%8F%B3%E9%94%AE-%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F-%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/regedit.jpg" class title="打开 regedit">
+<img src="/2021/02/23/windows-%E5%8F%B3%E9%94%AE-%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F-%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/regedit.jpg" class title="open regedit">
 
 <h3 id="进入-HKEY-CLASSES-ROOT-gt-gt-shell"><a href="#进入-HKEY-CLASSES-ROOT-gt-gt-shell" class="headerlink" title="进入 HKEY_CLASSES_ROOT -&gt; * -&gt; shell"></a>进入 HKEY_CLASSES_ROOT -&gt; * -&gt; shell</h3><img src="/2021/02/23/windows-%E5%8F%B3%E9%94%AE-%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F-%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/shell.jpg" class title="进入 shell 文件夹">
 
