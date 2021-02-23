@@ -6,7 +6,7 @@
   <link href="http://nontech.top/atom.xml" rel="self"/>
   
   <link href="http://nontech.top/"/>
-  <updated>2021-02-23T03:36:01.272Z</updated>
+  <updated>2021-02-23T03:43:34.750Z</updated>
   <id>http://nontech.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://nontech.top/2021/02/23/hexo-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/"/>
     <id>http://nontech.top/2021/02/23/hexo-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</id>
     <published>2021-02-23T01:58:49.000Z</published>
-    <updated>2021-02-23T03:36:01.272Z</updated>
+    <updated>2021-02-23T03:43:34.750Z</updated>
     
     <content type="html"><![CDATA[<p><em>今天想要试试在hexo博客中插入图片，按照官方文档试了下没成功，</em><br><em>翻看了一下别人的经验~~，原来是这样。</em><br><em>记录于此</em></p><a id="more"></a><h3 id="进入hexo博客根目录，安装个插件"><a href="#进入hexo博客根目录，安装个插件" class="headerlink" title="进入hexo博客根目录，安装个插件"></a>进入hexo博客根目录，安装个插件</h3><pre><code>npm install hexo-asset-image --save</code></pre><h3 id="修改根目录下的-config-yml"><a href="#修改根目录下的-config-yml" class="headerlink" title="修改根目录下的 _config.yml"></a>修改根目录下的 _config.yml</h3><pre><code>post_asset_folder: true</code></pre><p>这样就可以在 新建文章时在_post下面会生成一个和文章同名的文件夹，将要使用的图片等静态资源放在这里</p><h3 id="修改-hexo-asset-image-中的源码，将-node-modules-hexo-asset-image-index-js-中代码替换如下"><a href="#修改-hexo-asset-image-中的源码，将-node-modules-hexo-asset-image-index-js-中代码替换如下" class="headerlink" title="修改 hexo-asset-image 中的源码，将 /node_modules/hexo-asset-image/index.js 中代码替换如下"></a>修改 hexo-asset-image 中的源码，将 /node_modules/hexo-asset-image/index.js 中代码替换如下</h3><pre><code>&#39;use strict&#39;;var cheerio = require(&#39;cheerio&#39;);// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-stringfunction getPosition(str, m, i) &#123;return str.split(m, i).join(m).length;&#125;var version = String(hexo.version).split(&#39;.&#39;);hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;    var config = hexo.config;    if(config.post_asset_folder)&#123;        var link = data.permalink;        if(version.length &gt; 0 &amp;&amp; Number(version[0]) == 3)            var beginPos = getPosition(link, &#39;/&#39;, 1) + 1;        else            var beginPos = getPosition(link, &#39;/&#39;, 3) + 1;        // In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;.../about/index.html&quot;.        var endPos = link.lastIndexOf(&#39;/&#39;) + 1;        link = link.substring(beginPos, endPos);        var toprocess = [&#39;excerpt&#39;, &#39;more&#39;, &#39;content&#39;];        for(var i = 0; i &lt; toprocess.length; i++)&#123;            var key = toprocess[i];            var $ = cheerio.load(data[key], &#123;            ignoreWhitespace: false,            xmlMode: false,            lowerCaseTags: false,            decodeEntities: false            &#125;);            $(&#39;img&#39;).each(function()&#123;                if ($(this).attr(&#39;src&#39;))&#123;                    // For windows style path, we replace &#39;\&#39; to &#39;/&#39;.                    var src = $(this).attr(&#39;src&#39;).replace(&#39;\\&#39;, &#39;/&#39;);                    if(!/http[s]*.*|\/\/.*/.test(src) &amp;&amp;                    !/^\s*\//.test(src)) &#123;                    // For &quot;about&quot; page, the first part of &quot;src&quot; can&#39;t be removed.                    // In addition, to support multi-level local directory.                    var linkArray = link.split(&#39;/&#39;).filter(function(elem)&#123;                        return elem != &#39;&#39;;                    &#125;);                    var srcArray = src.split(&#39;/&#39;).filter(function(elem)&#123;                        return elem != &#39;&#39; &amp;&amp; elem != &#39;.&#39;;                    &#125;);                    if(srcArray.length &gt; 1)                        srcArray.shift();                    src = srcArray.join(&#39;/&#39;);                    $(this).attr(&#39;src&#39;, config.root + link + src);                    console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);                    &#125;                &#125;else&#123;                    console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);                    console.info&amp;&amp;console.info($(this));                &#125;            &#125;);            data[key] = $.html();        &#125;    &#125;&#125;);</code></pre><p>如果不做以上替换，我生成的图片路径前面总是会加上 “/.top/“ 前缀，导致图片访问不到</p><h3 id="在文章中使用如下标签引用图片"><a href="#在文章中使用如下标签引用图片" class="headerlink" title="在文章中使用如下标签引用图片"></a>在文章中使用如下标签引用图片</h3><pre><code>&#123;% asset_img(这个不变) 图片名称.jpg 文字注释 %&#125;</code></pre>]]></content>
     
@@ -30,6 +30,14 @@
     
     
     
+    <category term="计算机科学 - hexo" scheme="http://nontech.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6-hexo/"/>
+    
+    
+    <category term="hexo" scheme="http://nontech.top/tags/hexo/"/>
+    
+    <category term="hexo-asset-image" scheme="http://nontech.top/tags/hexo-asset-image/"/>
+    
+    <category term="hexo 插入图片" scheme="http://nontech.top/tags/hexo-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/"/>
     
   </entry>
   

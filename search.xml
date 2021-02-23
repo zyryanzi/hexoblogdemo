@@ -564,6 +564,14 @@ hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;
 <h3 id="在文章中使用如下标签引用图片"><a href="#在文章中使用如下标签引用图片" class="headerlink" title="在文章中使用如下标签引用图片"></a>在文章中使用如下标签引用图片</h3><pre><code>&#123;% asset_img(这个不变) 图片名称.jpg 文字注释 %&#125;
 </code></pre>
 ]]></content>
+      <categories>
+        <category>计算机科学 - hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>hexo-asset-image</tag>
+        <tag>hexo 插入图片</tag>
+      </tags>
   </entry>
   <entry>
     <title>windows-右键-打开方式-添加应用程序</title>
