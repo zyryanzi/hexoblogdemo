@@ -35,7 +35,8 @@
         <category>计算机科学 - 前端 - Vue</category>
       </categories>
       <tags>
-        <tag>他山之玉</tag>
+        <tag>vue3</tag>
+        <tag>vue3变更</tag>
       </tags>
   </entry>
   <entry>
@@ -56,7 +57,7 @@
 <pre><code>yum install certbot-nginx
 </code></pre>
 <p>以为到这里万事大吉，结果在执行以下命令时：</p>
-<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#120;&#x78;&#x78;&#120;&#120;&#x78;&#x40;&#120;&#x78;&#x78;&#46;&#99;&#111;&#109;">&#120;&#x78;&#x78;&#120;&#120;&#x78;&#x40;&#120;&#x78;&#x78;&#46;&#99;&#111;&#109;</a> –agree-tos</p>
+<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#120;&#120;&#x78;&#x78;&#120;&#x40;&#x78;&#120;&#120;&#46;&#x63;&#x6f;&#109;">&#x78;&#120;&#120;&#x78;&#x78;&#120;&#x40;&#x78;&#120;&#120;&#46;&#x63;&#x6f;&#109;</a> –agree-tos</p>
 <p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
 <p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
 <pre><code>python -m pip ......
@@ -77,7 +78,8 @@
         <category>计算机科学 - 系统</category>
       </categories>
       <tags>
-        <tag>他山之玉</tag>
+        <tag>Linux</tag>
+        <tag>python2</tag>
       </tags>
   </entry>
   <entry>
@@ -106,7 +108,7 @@ yum install -y certbot
 -w 指定 webroot 目录
 -d domain 想要获取的证书域名，支持多个域名
 </code></pre>
-<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#120;&#120;&#x78;&#120;&#120;&#x78;&#64;&#x78;&#x78;&#120;&#46;&#x63;&#111;&#109;">&#120;&#120;&#x78;&#120;&#120;&#x78;&#64;&#x78;&#x78;&#120;&#46;&#x63;&#111;&#109;</a> –agree-tos</p>
+<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#120;&#120;&#x78;&#64;&#120;&#x78;&#x78;&#46;&#x63;&#111;&#x6d;">&#x78;&#x78;&#120;&#120;&#120;&#x78;&#64;&#120;&#x78;&#x78;&#46;&#x63;&#111;&#x6d;</a> –agree-tos</p>
 <p>如果成功获取证书，你的密钥和证书存放在 /etc/letsencrypt/live/sub.domain.com/ 目录：</p>
 <pre><code>ll /etc/letsencrypt/live/sub.domain.com/
 
@@ -211,7 +213,9 @@ add_header Strict-Transport-Security max-age=15768000;
         <category>计算机科学 - 系统</category>
       </categories>
       <tags>
-        <tag>他山之玉</tag>
+        <tag>Linux</tag>
+        <tag>https</tag>
+        <tag>ssl证书</tag>
       </tags>
   </entry>
   <entry>
@@ -292,7 +296,8 @@ WantedBy=multi-user.target
         <category>计算机科学 - nginx</category>
       </categories>
       <tags>
-        <tag>ready-go</tag>
+        <tag>Linux</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -331,7 +336,9 @@ v2ray uninstall 卸载 V2Ray
         <category>计算机科学 - 网络技术</category>
       </categories>
       <tags>
-        <tag>ready-go</tag>
+        <tag>Linux</tag>
+        <tag>v2ray</tag>
+        <tag>一键安装</tag>
       </tags>
   </entry>
   <entry>
@@ -394,7 +401,9 @@ git submodule update
         <category>计算机科学 - git</category>
       </categories>
       <tags>
-        <tag>ready-go</tag>
+        <tag>git</tag>
+        <tag>git子模块</tag>
+        <tag>submodule</tag>
       </tags>
   </entry>
   <entry>
@@ -472,12 +481,115 @@ firewall-cmd --query-panic
         <category>计算机科学 - 系统</category>
       </categories>
       <tags>
-        <tag>他山之玉</tag>
+        <tag>Linux</tag>
+        <tag>firewalld</tag>
+        <tag>防火墙</tag>
+        <tag>命令</tag>
       </tags>
   </entry>
   <entry>
-    <title>windows-打开方式添加应用程序</title>
-    <url>/2021/02/22/windows-%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</url>
-    <content><![CDATA[]]></content>
+    <title>hexo-插入图片</title>
+    <url>/2021/02/23/hexo-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p><em>今天想要试试在hexo博客中插入图片，按照官方文档试了下没成功，</em><br><em>翻看了一下别人的经验~~，原来是这样。</em><br><em>记录于此</em></p>
+<a id="more"></a>
+
+<h3 id="进入hexo博客根目录，安装个插件"><a href="#进入hexo博客根目录，安装个插件" class="headerlink" title="进入hexo博客根目录，安装个插件"></a>进入hexo博客根目录，安装个插件</h3><pre><code>npm install hexo-asset-image --save
+</code></pre>
+<h3 id="修改根目录下的-config-yml"><a href="#修改根目录下的-config-yml" class="headerlink" title="修改根目录下的 _config.yml"></a>修改根目录下的 _config.yml</h3><pre><code>post_asset_folder: true
+</code></pre>
+<p>这样就可以在 新建文章时在_post下面会生成一个和文章同名的文件夹，将要使用的图片等静态资源放在这里</p>
+<h3 id="修改-hexo-asset-image-中的源码，将-node-modules-hexo-asset-image-index-js-中代码替换如下"><a href="#修改-hexo-asset-image-中的源码，将-node-modules-hexo-asset-image-index-js-中代码替换如下" class="headerlink" title="修改 hexo-asset-image 中的源码，将 /node_modules/hexo-asset-image/index.js 中代码替换如下"></a>修改 hexo-asset-image 中的源码，将 /node_modules/hexo-asset-image/index.js 中代码替换如下</h3><pre><code>&#39;use strict&#39;;
+var cheerio = require(&#39;cheerio&#39;);
+
+// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string
+function getPosition(str, m, i) &#123;
+return str.split(m, i).join(m).length;
+&#125;
+
+var version = String(hexo.version).split(&#39;.&#39;);
+hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;
+    var config = hexo.config;
+    if(config.post_asset_folder)&#123;
+        var link = data.permalink;
+        if(version.length &gt; 0 &amp;&amp; Number(version[0]) == 3)
+            var beginPos = getPosition(link, &#39;/&#39;, 1) + 1;
+        else
+            var beginPos = getPosition(link, &#39;/&#39;, 3) + 1;
+        // In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;.../about/index.html&quot;.
+        var endPos = link.lastIndexOf(&#39;/&#39;) + 1;
+        link = link.substring(beginPos, endPos);
+
+        var toprocess = [&#39;excerpt&#39;, &#39;more&#39;, &#39;content&#39;];
+        for(var i = 0; i &lt; toprocess.length; i++)&#123;
+            var key = toprocess[i];
+
+            var $ = cheerio.load(data[key], &#123;
+            ignoreWhitespace: false,
+            xmlMode: false,
+            lowerCaseTags: false,
+            decodeEntities: false
+            &#125;);
+
+            $(&#39;img&#39;).each(function()&#123;
+                if ($(this).attr(&#39;src&#39;))&#123;
+                    // For windows style path, we replace &#39;\&#39; to &#39;/&#39;.
+                    var src = $(this).attr(&#39;src&#39;).replace(&#39;\\&#39;, &#39;/&#39;);
+                    if(!/http[s]*.*|\/\/.*/.test(src) &amp;&amp;
+                    !/^\s*\//.test(src)) &#123;
+                    // For &quot;about&quot; page, the first part of &quot;src&quot; can&#39;t be removed.
+                    // In addition, to support multi-level local directory.
+                    var linkArray = link.split(&#39;/&#39;).filter(function(elem)&#123;
+                        return elem != &#39;&#39;;
+                    &#125;);
+                    var srcArray = src.split(&#39;/&#39;).filter(function(elem)&#123;
+                        return elem != &#39;&#39; &amp;&amp; elem != &#39;.&#39;;
+                    &#125;);
+                    if(srcArray.length &gt; 1)
+                        srcArray.shift();
+                    src = srcArray.join(&#39;/&#39;);
+                    $(this).attr(&#39;src&#39;, config.root + link + src);
+                    console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);
+                    &#125;
+                &#125;else&#123;
+                    console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);
+                    console.info&amp;&amp;console.info($(this));
+                &#125;
+            &#125;);
+            data[key] = $.html();
+        &#125;
+    &#125;
+&#125;);
+</code></pre>
+<p>如果不做以上替换，我生成的图片路径前面总是会加上 “/.top/“ 前缀，导致图片访问不到</p>
+<h3 id="在文章中使用如下标签引用图片"><a href="#在文章中使用如下标签引用图片" class="headerlink" title="在文章中使用如下标签引用图片"></a>在文章中使用如下标签引用图片</h3><pre><code>&#123;% asset_img(这个不变) 图片名称.jpg 文字注释 %&#125;
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>windows-右键-打开方式-添加应用程序</title>
+    <url>/2021/02/23/windows-%E5%8F%B3%E9%94%AE-%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F-%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<p><em>一个小技巧</em></p>
+<a id="more"></a>
+<h3 id="打开-regedit"><a href="#打开-regedit" class="headerlink" title="打开 regedit"></a>打开 regedit</h3><pre><code>win + r -&gt; 输入 “regedit”
+</code></pre>
+<img src="/2021/02/23/windows-%E5%8F%B3%E9%94%AE-%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F-%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/regedit.jpg" class title="打开 regedit">
+
+<h3 id="进入-HKEY-CLASSES-ROOT-gt-gt-shell"><a href="#进入-HKEY-CLASSES-ROOT-gt-gt-shell" class="headerlink" title="进入 HKEY_CLASSES_ROOT -&gt; * -&gt; shell"></a>进入 HKEY_CLASSES_ROOT -&gt; * -&gt; shell</h3><img src="/2021/02/23/windows-%E5%8F%B3%E9%94%AE-%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F-%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/shell.jpg" class title="进入 shell 文件夹">
+
+<h3 id="shell-上右键-gt-新建-gt-项"><a href="#shell-上右键-gt-新建-gt-项" class="headerlink" title="shell 上右键 -&gt; 新建 -&gt; 项"></a>shell 上右键 -&gt; 新建 -&gt; 项</h3><img src="/2021/02/23/windows-%E5%8F%B3%E9%94%AE-%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F-%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/new-option.jpg" class title="新建项">
+<p>并输入名称（如 “EditPlus”）</p>
+<h3 id="再新建项，并命名为-“command”"><a href="#再新建项，并命名为-“command”" class="headerlink" title="再新建项，并命名为 “command”"></a>再新建项，并命名为 “command”</h3><img src="/2021/02/23/windows-%E5%8F%B3%E9%94%AE-%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F-%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/new-command.jpg" class title="新建项">
+<p>并双击右侧 “默认” 图标</p>
+<h3 id="编辑-默认项"><a href="#编辑-默认项" class="headerlink" title="编辑 默认项"></a>编辑 默认项</h3><img src="/2021/02/23/windows-%E5%8F%B3%E9%94%AE-%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F-%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/edit-moren.jpg" class title="编辑字符串">
+<p>将应用程序的路径复制过来，注意要在路径后面加上应用程序名称，例如：\EditPlus.exe。最后，在路径和名称后面加上”空格”和”%1”。<br>例如：E:\Program_Files\EditPlus\EditPlus.exe 1%</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>系统</category>
+      </categories>
+      <tags>
+        <tag>系统</tag>
+        <tag>windows技巧</tag>
+      </tags>
   </entry>
 </search>
