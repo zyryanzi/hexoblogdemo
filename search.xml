@@ -14,6 +14,73 @@
       </tags>
   </entry>
   <entry>
+    <title>Foxmail-添加Gmail-设置代理</title>
+    <url>/2021/02/24/Foxmail-%E6%B7%BB%E5%8A%A0Gmail-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<p><em>搭了个梯子，pc上也配好了客户端，一切看好，拜各位技术大佬的山头更方便了</em><br><em>就在我想飞的更高的时候，foxmail-gmail给了我当头一棒</em><br><em>找了很多方法都没成功，最后一种很简单的方式，解决了，记录一下 ^_^</em></p>
+<a id="more"></a>
+<h3 id="新增账户"><a href="#新增账户" class="headerlink" title="新增账户"></a>新增账户</h3><img src="/2021/02/24/Foxmail-%E6%B7%BB%E5%8A%A0Gmail-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/add_account.jpg" class title="新增账户">
+
+<p>输入账户、密码，点击 “创建”，会有类似如下提示：</p>
+<img src="/2021/02/24/Foxmail-%E6%B7%BB%E5%8A%A0Gmail-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/failed.jpg" class title="验证失败">
+
+<p>点击 “代理设置”，在弹出的卡片中填入红框中信息</p>
+<img src="/2021/02/24/Foxmail-%E6%B7%BB%E5%8A%A0Gmail-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/proxy.jpg" class title="代理设置">
+
+<p><em>那么红框中的信息是哪来的呢？就要从我的梯子中说起了</em></p>
+<h3 id="梯子的信息"><a href="#梯子的信息" class="headerlink" title="梯子的信息"></a>梯子的信息</h3><img src="/2021/02/24/Foxmail-%E6%B7%BB%E5%8A%A0Gmail-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/ladder.jpg" class title="本地梯子">
+<p>因为我事先使用V2RayW搭好了梯子，在本地暴露出了8001端口，<br>所以在foxmail中直接配置上就可以使用了。</p>
+<p><em>相信有好多小白也许会遇到和我类似的问题，希望能帮到你们</em></p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>Foxmail</tag>
+        <tag>Gmail邮箱</tag>
+        <tag>代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H5-分割线的一点小技巧</title>
+    <url>/2021/02/24/H5-%E5%88%86%E5%89%B2%E7%BA%BF%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<p><em>在写页面的时候，经常会遇到要用分隔线的时候</em><br><em>捡了一位大大线程的资源，留作记录</em><br><em>千恩万谢的大佬：<a href="https://blog.csdn.net/weixin_39198406/article/details/78827671">https://blog.csdn.net/weixin_39198406/article/details/78827671</a></em></p>
+<a id="more"></a>
+<p><em>结果并未全部验证</em></p>
+<h3 id="平民分割线"><a href="#平民分割线" class="headerlink" title="平民分割线"></a>平民分割线</h3><h5 id="朴素版"><a href="#朴素版" class="headerlink" title="朴素版"></a>朴素版</h5><pre><code>&lt;HR&gt;
+</code></pre>
+<h5 id="搭配参数分隔线"><a href="#搭配参数分隔线" class="headerlink" title="搭配参数分隔线"></a>搭配参数分隔线</h5><pre><code>&lt;HR align=center width=300 color=#987cb9 SIZE=1&gt;
+</code></pre>
+<h3 id="华丽分割线"><a href="#华丽分割线" class="headerlink" title="华丽分割线"></a>华丽分割线</h3><h5 id="两端渐变透明"><a href="#两端渐变透明" class="headerlink" title="两端渐变透明"></a>两端渐变透明</h5><pre><code>&lt;HR style=&quot;FILTER: alpha(opacity=100,finishopacity=0,style=3)&quot; width=&quot;80%&quot; color=#987cb9 SIZE=3&gt;
+</code></pre>
+<h5 id="纺锤形状"><a href="#纺锤形状" class="headerlink" title="纺锤形状"></a>纺锤形状</h5><pre><code>&lt;HR style=&quot;FILTER: alpha(opacity=100,finishopacity=0,style=2)&quot; width=&quot;80%&quot; color=#987cb9 SIZE=10&gt;
+</code></pre>
+<h5 id="右端渐变透明"><a href="#右端渐变透明" class="headerlink" title="右端渐变透明"></a>右端渐变透明</h5><pre><code>&lt;HR style=&quot;FILTER: alpha(opacity=100,finishopacity=0,style=1)&quot; width=&quot;80%&quot; color=#987cb9 SIZE=3&gt;
+</code></pre>
+<h5 id="左端渐变透明"><a href="#左端渐变透明" class="headerlink" title="左端渐变透明"></a>左端渐变透明</h5><pre><code>&lt;HR style=&quot;FILTER: alpha(opacity=0,finishopacity=100,style=1)&quot; width=&quot;80%&quot; color=#987cb9 SIZE=3&gt;
+</code></pre>
+<h5 id="虚线"><a href="#虚线" class="headerlink" title="虚线"></a>虚线</h5><pre><code>&lt;HR style=&quot;border:1 dashed #987cb9&quot; width=&quot;80%&quot; color=#987cb9 SIZE=1&gt;
+</code></pre>
+<h5 id="双线"><a href="#双线" class="headerlink" title="双线"></a>双线</h5><pre><code>&lt;HR style=&quot;border:3 double #987cb9&quot; width=&quot;80%&quot; color=#987cb9 SIZE=3&gt;
+</code></pre>
+<h5 id="立体感官"><a href="#立体感官" class="headerlink" title="立体感官"></a>立体感官</h5><pre><code>&lt;HR style=&quot;FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)&quot; width=&quot;80%&quot; color=#987cb9 SIZE=1&gt;
+</code></pre>
+<h5 id="仿若钢针"><a href="#仿若钢针" class="headerlink" title="仿若钢针"></a>仿若钢针</h5><pre><code>&lt;HR style=&quot;FILTER: progid:DXImageTransform.Microsoft.Glow(color=#987cb9,strength=10)&quot; width=&quot;80%&quot; color=#987cb9 SIZE=1&gt;
+</code></pre>
+<h5 id="垂直方向"><a href="#垂直方向" class="headerlink" title="垂直方向"></a>垂直方向</h5><pre><code>&lt;table border=&quot;1px&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;height:265px;border-left-style:solid; border-bottom-style:none;border-right-style:none;border-top-style:none&quot;&gt;
+</code></pre>
+<h3 id="示例（没有体现出垂直方向的）"><a href="#示例（没有体现出垂直方向的）" class="headerlink" title="示例（没有体现出垂直方向的）"></a>示例（没有体现出垂直方向的）</h3><img src="/2021/02/24/H5-%E5%88%86%E5%89%B2%E7%BA%BF%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E6%8A%80%E5%B7%A7/eg.jpg" class title="放开菜单配置">
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>H5</tag>
+        <tag>分隔线</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux Anaconda Python3</title>
     <url>/2021/02/23/Linux-Anaconda-Python3/</url>
     <content><![CDATA[<p><em>请勿使用 root 用户直接安装</em></p>
@@ -104,6 +171,92 @@ export LD_LIBRARY_PATH=&quot;/home/[username]/anaconda3/lib:LD_LIBRARY_PATH&quot
       </tags>
   </entry>
   <entry>
+    <title>centos7-nginx-setup</title>
+    <url>/2021/02/12/centos7-nginx-setup/</url>
+    <content><![CDATA[<p><em>在爬楼安装 nginx 的过程中，遇到了不少问题，记录于此，已备不时之需</em></p>
+<a id="more"></a>
+
+<h2 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h2><h3 id="下载-nginx-源码"><a href="#下载-nginx-源码" class="headerlink" title="下载 nginx 源码"></a>下载 nginx 源码</h3><pre><code>进入目标路径，例如 /usr/local
+yum install -y wget
+wget http://nginx.org/download/nginx-1.9.9.tar.gz
+</code></pre>
+<h3 id="检查-安装-gcc-编译器"><a href="#检查-安装-gcc-编译器" class="headerlink" title="检查/安装 gcc(编译器)"></a>检查/安装 gcc(编译器)</h3><pre><code>gcc -v
+yum -y install gcc
+</code></pre>
+<h3 id="安装-pcre、pcre-devel-（为什么安装俩？）"><a href="#安装-pcre、pcre-devel-（为什么安装俩？）" class="headerlink" title="安装 pcre、pcre-devel （为什么安装俩？）"></a>安装 pcre、pcre-devel （为什么安装俩？）</h3><pre><code>yum install -y pcre pcre-devel
+</code></pre>
+<p>pcre 是一个 perl 库，包括 perl 兼容的正则表达式库，nginx 的 http 模块使用 pcre 来解析正则表达式</p>
+<h3 id="安装-zlib"><a href="#安装-zlib" class="headerlink" title="安装 zlib"></a>安装 zlib</h3><pre><code>yum install -y zlib zlib-devel
+</code></pre>
+<p>zlib 库提供了很多种压缩和解压缩方式，nginx 使用 zlib 对 http 包的内容进行 gzip</p>
+<h3 id="安装-openssl"><a href="#安装-openssl" class="headerlink" title="安装 openssl"></a>安装 openssl</h3><pre><code>yum install -y openssl openssl-devel
+</code></pre>
+<p>openssl是web安全通信的基石，大神说禁止裸奔</p>
+<h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><h3 id="解压-nginx"><a href="#解压-nginx" class="headerlink" title="解压 nginx"></a>解压 nginx</h3><pre><code>tar -zxvf  nginx-1.9.9.tar.gz
+并进入 nginx-1.9.9
+</code></pre>
+<h3 id="make-nginx"><a href="#make-nginx" class="headerlink" title="make nginx"></a>make nginx</h3><p>~ 执行 ./configure, 如果有需要的模块，跟在后面，例如：</p>
+<pre><code>./configure --with-http_image_filter_module
+</code></pre>
+<p>可能会报错，关于 GD 的，那么需要执行下面的语句，再执行 ./configure –xxx</p>
+<pre><code>yum install -y gd gd-devel
+</code></pre>
+<p>~ 依次执行 make，make install</p>
+<h3 id="检查配置文件"><a href="#检查配置文件" class="headerlink" title="检查配置文件"></a>检查配置文件</h3><p>查看 /usr/local/nginx/conf/nginx.conf，80端口是否配置；<br>进入 /usr/local/nginx/sbin 目录，执行命令启动nginx, 并查看是否成功:</p>
+<pre><code>./nginx
+ps -ef | grep nginx
+</code></pre>
+<h3 id="访问服务器IP"><a href="#访问服务器IP" class="headerlink" title="访问服务器IP"></a>访问服务器IP</h3><pre><code>出现： Welcom to nginx 页面
+</code></pre>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>因为经常要执行 nginx 命令，每次都进入 nginx 文件夹很不方便，因此配置环境变量会方便些，执行</p>
+<pre><code>vim /etc/profile
+</code></pre>
+<p>在末尾添加两条语句：</p>
+<pre><code>PATH=$PATH:/usr/local/nginx/sbin
+export PATH
+</code></pre>
+<p>保存退出后，需要执行一条语句使修改生效：</p>
+<pre><code>source /etc/profile
+</code></pre>
+<p>此后执行命令会方便很多，如：</p>
+<pre><code>nginx -t
+nginx -s reload
+nginx -s stop
+</code></pre>
+<h2 id="配置服务（规范启停服务操作）"><a href="#配置服务（规范启停服务操作）" class="headerlink" title="配置服务（规范启停服务操作）"></a>配置服务（规范启停服务操作）</h2><p>新建并编辑服务文件：</p>
+<pre><code>vim /usr/lib/systemd/system/nginx.service
+
+内容如下：
+[Unit]
+Description=nginx - high performance web server
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/usr/local/nginx/logs/nginx.pid
+ExecStartPre=/usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf
+ExecStart=/usr/local/nginx/sbin/nginx
+ExecReload=/usr/local/nginx/sbin/nginx -s reload
+ExecStop=/usr/local/nginx/sbin/nginx -s stop
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>保存退出（我试了，停止不了，也许我哪里搞得不对，慢慢再看了）</p>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p><em>参考链接：<a href="https://blog.csdn.net/qq_37345604/article/details/90034424">https://blog.csdn.net/qq_37345604/article/details/90034424</a></em></p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>网络技术</category>
+        <category>nginx</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>centos7-certbot-python2-版本坑</title>
     <url>/2021/02/03/centos7-certbot-python2-%E7%89%88%E6%9C%AC%E5%9D%91/</url>
     <content><![CDATA[<p><em>centos7 系统，默认装的 python2，后来又装了python3</em><br><em>使用了 pip，默认包都是给python3用的，python2 的包一直没有更新</em><br><em>在使用 Let’s Ecrypt 生成SSL证书时，遇到了版本不兼容的坑</em></p>
@@ -121,7 +274,7 @@ export LD_LIBRARY_PATH=&quot;/home/[username]/anaconda3/lib:LD_LIBRARY_PATH&quot
 <pre><code>yum install certbot-nginx
 </code></pre>
 <p>以为到这里万事大吉，结果在执行以下命令时：</p>
-<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#120;&#120;&#120;&#64;&#x78;&#x78;&#x78;&#46;&#x63;&#111;&#109;">&#x78;&#x78;&#120;&#120;&#120;&#120;&#64;&#x78;&#x78;&#x78;&#46;&#x63;&#111;&#109;</a> –agree-tos</p>
+<p>certbot certonly –webroot -w /usr/local/nginx/html/ -d sub.domain.com -m <a href="mailto:&#120;&#x78;&#120;&#120;&#x78;&#x78;&#64;&#120;&#x78;&#x78;&#x2e;&#99;&#x6f;&#109;">&#120;&#x78;&#120;&#120;&#x78;&#x78;&#64;&#120;&#x78;&#x78;&#x2e;&#99;&#x6f;&#109;</a> –agree-tos</p>
 <p>报错：<br>    ……<br>    from_buffer() cannot return the address of the raw string within a str or unicode or bytearray object<br>    ……</p>
 <p>搜索了好多，结果就是版本不匹配的问题，然后就各种升级，因为pip默认使用了python3的包路径，而certbot使用的python2，所以刚开始用 pip 对 pyOpenSSL, cffi, cryptography 等用到的包升级，都没有发生影响。后来别人告诉我要使用这样的命令：</p>
 <pre><code>python -m pip ......
@@ -174,7 +327,7 @@ yum install -y certbot
 -w 指定 webroot 目录
 -d domain 想要获取的证书域名，支持多个域名
 </code></pre>
-<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#120;&#x78;&#x78;&#120;&#120;&#x40;&#120;&#120;&#120;&#x2e;&#99;&#111;&#109;">&#x78;&#120;&#x78;&#x78;&#120;&#120;&#x40;&#120;&#120;&#120;&#x2e;&#99;&#111;&#109;</a> –agree-tos</p>
+<p>但是有些时候我们的一些服务并没有根目录，例如一些微服务，这时候使用 –webroot 就走不通了。certbot 还有另外一种模式 –standalone，这种模式不需要指定网站根目录，他会自动启用服务器的443端口，来验证域名的归属。我们有其他服务（例如nginx）占用了443端口，就必须先停止这些服务，在证书生成完毕后，再启用。<br>    certbot certonly –standalone -d sub.domain.com -m <a href="mailto:&#x78;&#x78;&#120;&#x78;&#120;&#x78;&#x40;&#120;&#120;&#x78;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#x78;&#120;&#x78;&#120;&#x78;&#x40;&#120;&#120;&#x78;&#x2e;&#x63;&#x6f;&#109;</a> –agree-tos</p>
 <p>如果成功获取证书，你的密钥和证书存放在 /etc/letsencrypt/live/sub.domain.com/ 目录：</p>
 <pre><code>ll /etc/letsencrypt/live/sub.domain.com/
 
@@ -283,92 +436,6 @@ add_header Strict-Transport-Security max-age=15768000;
         <tag>Linux</tag>
         <tag>https</tag>
         <tag>ssl证书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>centos7-nginx-setup</title>
-    <url>/2021/02/12/centos7-nginx-setup/</url>
-    <content><![CDATA[<p><em>在爬楼安装 nginx 的过程中，遇到了不少问题，记录于此，已备不时之需</em></p>
-<a id="more"></a>
-
-<h2 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h2><h3 id="下载-nginx-源码"><a href="#下载-nginx-源码" class="headerlink" title="下载 nginx 源码"></a>下载 nginx 源码</h3><pre><code>进入目标路径，例如 /usr/local
-yum install -y wget
-wget http://nginx.org/download/nginx-1.9.9.tar.gz
-</code></pre>
-<h3 id="检查-安装-gcc-编译器"><a href="#检查-安装-gcc-编译器" class="headerlink" title="检查/安装 gcc(编译器)"></a>检查/安装 gcc(编译器)</h3><pre><code>gcc -v
-yum -y install gcc
-</code></pre>
-<h3 id="安装-pcre、pcre-devel-（为什么安装俩？）"><a href="#安装-pcre、pcre-devel-（为什么安装俩？）" class="headerlink" title="安装 pcre、pcre-devel （为什么安装俩？）"></a>安装 pcre、pcre-devel （为什么安装俩？）</h3><pre><code>yum install -y pcre pcre-devel
-</code></pre>
-<p>pcre 是一个 perl 库，包括 perl 兼容的正则表达式库，nginx 的 http 模块使用 pcre 来解析正则表达式</p>
-<h3 id="安装-zlib"><a href="#安装-zlib" class="headerlink" title="安装 zlib"></a>安装 zlib</h3><pre><code>yum install -y zlib zlib-devel
-</code></pre>
-<p>zlib 库提供了很多种压缩和解压缩方式，nginx 使用 zlib 对 http 包的内容进行 gzip</p>
-<h3 id="安装-openssl"><a href="#安装-openssl" class="headerlink" title="安装 openssl"></a>安装 openssl</h3><pre><code>yum install -y openssl openssl-devel
-</code></pre>
-<p>openssl是web安全通信的基石，大神说禁止裸奔</p>
-<h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><h3 id="解压-nginx"><a href="#解压-nginx" class="headerlink" title="解压 nginx"></a>解压 nginx</h3><pre><code>tar -zxvf  nginx-1.9.9.tar.gz
-并进入 nginx-1.9.9
-</code></pre>
-<h3 id="make-nginx"><a href="#make-nginx" class="headerlink" title="make nginx"></a>make nginx</h3><p>~ 执行 ./configure, 如果有需要的模块，跟在后面，例如：</p>
-<pre><code>./configure --with-http_image_filter_module
-</code></pre>
-<p>可能会报错，关于 GD 的，那么需要执行下面的语句，再执行 ./configure –xxx</p>
-<pre><code>yum install -y gd gd-devel
-</code></pre>
-<p>~ 依次执行 make，make install</p>
-<h3 id="检查配置文件"><a href="#检查配置文件" class="headerlink" title="检查配置文件"></a>检查配置文件</h3><p>查看 /usr/local/nginx/conf/nginx.conf，80端口是否配置；<br>进入 /usr/local/nginx/sbin 目录，执行命令启动nginx, 并查看是否成功:</p>
-<pre><code>./nginx
-ps -ef | grep nginx
-</code></pre>
-<h3 id="访问服务器IP"><a href="#访问服务器IP" class="headerlink" title="访问服务器IP"></a>访问服务器IP</h3><pre><code>出现： Welcom to nginx 页面
-</code></pre>
-<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>因为经常要执行 nginx 命令，每次都进入 nginx 文件夹很不方便，因此配置环境变量会方便些，执行</p>
-<pre><code>vim /etc/profile
-</code></pre>
-<p>在末尾添加两条语句：</p>
-<pre><code>PATH=$PATH:/usr/local/nginx/sbin
-export PATH
-</code></pre>
-<p>保存退出后，需要执行一条语句使修改生效：</p>
-<pre><code>source /etc/profile
-</code></pre>
-<p>此后执行命令会方便很多，如：</p>
-<pre><code>nginx -t
-nginx -s reload
-nginx -s stop
-</code></pre>
-<h2 id="配置服务（规范启停服务操作）"><a href="#配置服务（规范启停服务操作）" class="headerlink" title="配置服务（规范启停服务操作）"></a>配置服务（规范启停服务操作）</h2><p>新建并编辑服务文件：</p>
-<pre><code>vim /usr/lib/systemd/system/nginx.service
-
-内容如下：
-[Unit]
-Description=nginx - high performance web server
-After=network.target remote-fs.target nss-lookup.target
-
-[Service]
-Type=forking
-PIDFile=/usr/local/nginx/logs/nginx.pid
-ExecStartPre=/usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf
-ExecStart=/usr/local/nginx/sbin/nginx
-ExecReload=/usr/local/nginx/sbin/nginx -s reload
-ExecStop=/usr/local/nginx/sbin/nginx -s stop
-PrivateTmp=true
-
-[Install]
-WantedBy=multi-user.target
-</code></pre>
-<p>保存退出（我试了，停止不了，也许我哪里搞得不对，慢慢再看了）</p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p><em>参考链接：<a href="https://blog.csdn.net/qq_37345604/article/details/90034424">https://blog.csdn.net/qq_37345604/article/details/90034424</a></em></p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-        <category>网络技术</category>
-        <category>nginx</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -498,6 +565,122 @@ firewall-cmd --query-panic
       </tags>
   </entry>
   <entry>
+    <title>frp-初体验</title>
+    <url>/2021/02/25/frp-%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<p><em>都听人说黑群晖，自己也搭一个试试（挺麻烦，过程以后再写），虽然一直开着费电，不过练习一下还是蛮有趣。</em><br><em>搭好之后，用一个免费的局域网软件和自己的手机连上了，但是很不稳定，于是研究下 frp，看看能不能取得更好的效果</em></p>
+<a id="more"></a>
+<h3 id="服务端安装配置"><a href="#服务端安装配置" class="headerlink" title="服务端安装配置"></a>服务端安装配置</h3><h4 id="服务器上下载最新release的-frp"><a href="#服务器上下载最新release的-frp" class="headerlink" title="服务器上下载最新release的 frp"></a>服务器上下载最新release的 frp</h4><p>首先有台有外网（外部网络）IP的服务器，我的是Centos7系统的，进入 /usr/local 目录<br>（我也不知道为啥进这里，因为别人都进这）</p>
+<pre><code>wget https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_linux_amd64.tar.gz
+</code></pre>
+<img src="/2021/02/25/frp-%E5%88%9D%E4%BD%93%E9%AA%8C/download.jpg" class title="下载">
+
+<h4 id="解压文件并进入之"><a href="#解压文件并进入之" class="headerlink" title="解压文件并进入之"></a>解压文件并进入之</h4><pre><code>tar -vxf frp_0.35.1_linux_amd64.tar.gz
+cd frp_0.35.1_linux_amd64
+</code></pre>
+<img src="/2021/02/25/frp-%E5%88%9D%E4%BD%93%E9%AA%8C/tar.jpg" class title="解压">
+
+<h4 id="编辑-frps-ini"><a href="#编辑-frps-ini" class="headerlink" title="编辑 frps.ini"></a>编辑 frps.ini</h4><pre><code>vim frps.ini
+
+[common]
+bind_port = 7000            # frp在服务端机器的端口
+vhost_http_port = 10101     # frp监听外网http请求的端口
+dashboard_port = 7003       # frp控制台端口
+dashboard_user = admin      # frp控制台用户名
+dashboard_pwd = admin       # frp控制台访问密码
+</code></pre>
+<p>vhost_http_port 原来是80，我在启动的时候，报冲突，于是改了一个，记住就好，待会要配到frpc.ini</p>
+<h4 id="配置-frp-service"><a href="#配置-frp-service" class="headerlink" title="配置 frp.service"></a>配置 frp.service</h4><pre><code>vim /usr/lib/systemd/system/frp.service
+
+[Unit]
+Description=The nginx HTTP and reverse proxy server
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/your_folder_name/frps -c /usr/local/your_folder_name/frps.ini
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+KillMode=process
+PrivateTmp=true
+StandardOutput=syslog
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>将your_folder_name更换为自己frp文件夹</p>
+<h4 id="启动服务端"><a href="#启动服务端" class="headerlink" title="启动服务端"></a>启动服务端</h4><pre><code>systemctl start frp
+systemctl status frp
+</code></pre>
+<img src="/2021/02/25/frp-%E5%88%9D%E4%BD%93%E9%AA%8C/frps_suc.jpg" class title="成功启动">
+
+<h3 id="客户端安装配置"><a href="#客户端安装配置" class="headerlink" title="客户端安装配置"></a>客户端安装配置</h3><h4 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h4><p>因为我的系统是win10, 于是下载了这个</p>
+<img src="/2021/02/25/frp-%E5%88%9D%E4%BD%93%E9%AA%8C/win_download.jpg" class title="win下载">
+
+<h4 id="将其解压到一个你喜欢的地方并进入之"><a href="#将其解压到一个你喜欢的地方并进入之" class="headerlink" title="将其解压到一个你喜欢的地方并进入之"></a>将其解压到一个你喜欢的地方并进入之</h4><img src="/2021/02/25/frp-%E5%88%9D%E4%BD%93%E9%AA%8C/win_frp.jpg" class title="win解压">
+
+<h4 id="编辑-frpc-ini"><a href="#编辑-frpc-ini" class="headerlink" title="编辑 frpc.ini"></a>编辑 frpc.ini</h4><pre><code>[common]
+server_addr = 10.10.10.10       # 外部服务器 IP
+server_port = 7000              # frp 服务的端口
+[web]                           # 和上面的配置一样名称
+type = http                     # 这里改成 http（不明所以）
+local_ip = 127.0.0.1            # 本机 IP
+local_port = 8080               # 内网要暴露的服务端口
+remote_port = 10101             # http 访问的端口
+custom_domains = 10.10.10.10    # 外部网IP或域名
+</code></pre>
+<p>server_addr 就是你的服务端外网IP<br>type 改为http<br>custom_domains 与server_addr一致</p>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>完成编辑，就可以启动了，进入frp的根目录，执行：<br>    frpc.exe<br>第一次没有成功，因为忘记在服务器上开放7000端口。<br><em>开放端口请参考另一篇文章：<a href="https://nontech.top/2021/02/01/firewalld-%E9%98%B2%E7%81%AB%E5%A2%99-%E6%90%AC%E8%BF%90/">https://nontech.top/2021/02/01/firewalld-%E9%98%B2%E7%81%AB%E5%A2%99-%E6%90%AC%E8%BF%90/</a></em></p>
+<p>再次执行命令，成功启动了。</p>
+<p>访问：10.10.10.10:10101 即可访问到内网服务<br>至此完成，后续补充~~~</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>使用frp几天，简直太方便，但是也慢慢感觉到有更多的需要。<br>家里的机器也需要内网穿透暴露一些服务，于是读了读大神们的文章。<br>如何使用一台 frps 穿透多个 frpc。<br>这里要使用到二级域名。</p>
+<h3 id="修改服务端-frps-ini"><a href="#修改服务端-frps-ini" class="headerlink" title="修改服务端 frps.ini"></a>修改服务端 frps.ini</h3><pre><code>[common]
+bind_port = 7000
+vhost_http_port = 10101
+# 控制台
+dashboard_port = 7003
+dashboard_user = admin
+dashboard_pwd = admin
+# token验证
+privilege_token = frp
+# 连接池
+max_pool_count = 5
+# 日志
+log_file = ./frps.log
+log_level = info
+log_max_days = 3
+# 自定义二级域名
+subdomain_host = [subdomain].mydomain.com
+</code></pre>
+<p>新添加的 subdomain_host 配置为 [subdomain].mydomain.com，这里mydomain.com 是解析到你服务器ip的</p>
+<h3 id="修改客户端-frpc-ini"><a href="#修改客户端-frpc-ini" class="headerlink" title="修改客户端 frpc.ini"></a>修改客户端 frpc.ini</h3><pre><code>[common]
+server_addr = 10.10.10.10
+server_port = 7000
+privilege_token = frp
+
+[web]
+type = http
+local_ip = 127.0.0.1
+local_port = 8080
+# remote_port = 10101
+# custom_domains = 10.10.10.10
+subdomain = [name]
+</code></pre>
+<p>新添加的 subdomain，自己取个名字即可</p>
+<h3 id="二级域名解析"><a href="#二级域名解析" class="headerlink" title="二级域名解析"></a>二级域名解析</h3><p>因为多台内网设备都要使用，因此需要将*.[subdomain].mydomain.com在你的域名服务商做一个 A 解析即可。<br>并且将 *.[subdomain].mydomain.com 加入服务端nginx监听中，然后重定向到服务端的 frps 的 vhost_http_port 字段<br>    server {<br>        listen          10100; #用于外部访问的端口<br>        server_name     *.[subdomain].mydomain.com #这里是重点<br>        location / {<br>            proxy_redirect          off;<br>            proxy_set_header        Host            $host:$server_port;<br>            proxy_set_header        X-Forwarded-For $remote_addr;<br>            client_max_body_size    20m;<br>            client_body_buffer_size 128k;<br>            proxy_connect_timeout   600;<br>            proxy_send_timeout      600;<br>            proxy_read_timeout      900;<br>            proxy_buffer_size       4k;<br>            proxy_buffers           4 32k;<br>            proxy_busy_buffers_size 64k;<br>            proxy_temp_file_write_size 64k;<br>            proxy_pass <a href="http://127.0.0.1:10101/">http://127.0.0.1:10101/</a>; #这里是重点<br>        }<br>    }</p>
+<p>如此，重启服务和客户端，访问 [name].[subdomain].mydomain.com:10100 即可访问到 内网 8080 的服务 </p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>frp</tag>
+        <tag>内网穿透</tag>
+        <tag>多个内网服务</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git 子模块 submodule 添加-使用-删除</title>
     <url>/2021/02/06/git-%E5%AD%90%E6%A8%A1%E5%9D%97-submodule-%E6%B7%BB%E5%8A%A0-%E4%BD%BF%E7%94%A8-%E5%88%A0%E9%99%A4/</url>
     <content><![CDATA[<p><em>刚开始搞blog，使用 hexo 的 next 模板的时候，直接从github上拉了代码，这样在我的仓库下面就有了另外一个仓库。为了能尽量避坑，搜索了一些前人的经验，记录于此。</em></p>
@@ -561,6 +744,35 @@ git submodule update
         <tag>git</tag>
         <tag>git子模块</tag>
         <tag>submodule</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo-next 使用tags、categories等菜单</title>
+    <url>/2021/02/23/hexo-next-%E4%BD%BF%E7%94%A8tags%E3%80%81categories%E7%AD%89%E8%8F%9C%E5%8D%95/</url>
+    <content><![CDATA[<p><em>next 主题中，tags、categories 等菜单默认关闭的，在配置文件中将其放开即可显示。然鹅~~~</em><br><em>页面上点开就出现了 “Cannot GET /tags/”，于是，拜了几个山头，讨回了一点经验</em><br><em>感谢大佬：<a href="https://www.lwhweb.com/posts/765/">https://www.lwhweb.com/posts/765/</a></em></p>
+<a id="more"></a>
+<h3 id="新建页面，以tags为例："><a href="#新建页面，以tags为例：" class="headerlink" title="新建页面，以tags为例："></a>新建页面，以tags为例：</h3><pre><code>hexo new page &quot;tags&quot;
+</code></pre>
+<p>执行以上命令，即可生成 /source/tags/index.md 文件，这样可以确保在打包时在 /tags/下面生成index.html<br>这也是问题的关键所在</p>
+<h3 id="修改新生成的-source-tags-index-md，加入-“type-tags”"><a href="#修改新生成的-source-tags-index-md，加入-“type-tags”" class="headerlink" title="修改新生成的 /source/tags/index.md，加入 “type: tags”"></a>修改新生成的 /source/tags/index.md，加入 “type: tags”</h3><pre><code>---
+title: tags（自己定义，显示在页面）
+date: 2021-02-23 17:23:37
+type: tags
+---
+</code></pre>
+<h3 id="修改主题的配置文件，例如：-config-next-yml"><a href="#修改主题的配置文件，例如：-config-next-yml" class="headerlink" title="修改主题的配置文件，例如：_config.next.yml"></a>修改主题的配置文件，例如：_config.next.yml</h3><img src="/2021/02/23/hexo-next-%E4%BD%BF%E7%94%A8tags%E3%80%81categories%E7%AD%89%E8%8F%9C%E5%8D%95/release_conf.jpg" class title="放开菜单配置">
+
+<p>放开对应菜单的配置，如果没有，添加即可</p>
+<p><em>至此结束</em></p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+        <tag>menu</tag>
       </tags>
   </entry>
   <entry>
@@ -674,7 +886,44 @@ hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;
       </categories>
       <tags>
         <tag>系统</tag>
-        <tag>windows技巧</tag>
+        <tag>小窍门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>查看正在运行的程序</title>
+    <url>/2021/03/01/%E6%9F%A5%E7%9C%8B%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E7%9A%84%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<p><em>某一天，nginx重新make之后，发现一直有问题，就想看看它的运行状态和启动状态。</em><br><em>就有了接下来的意外发现~~~</em></p>
+<a id="more"></a>
+
+<h3 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h3><pre><code>[root@fair-laser-1 ~]# ps -ef | grep nginx
+root      6207     1  0 Feb26 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+nobody    6208  6207  0 Feb26 ?        00:00:03 nginx: worker process
+root      6363  6312  0 14:42 pts/1    00:00:00 grep --color=auto nginx
+</code></pre>
+<p>可以看到，第一个是 master，第二个是 worker；所以我们记住第一个进程号 6207</p>
+<h3 id="查询nginx程序的路径"><a href="#查询nginx程序的路径" class="headerlink" title="查询nginx程序的路径"></a>查询nginx程序的路径</h3><pre><code>[root@fair-laser-1 ~]# ll /proc/6207/exe     
+lrwxrwxrwx 1 root root 0 Feb 27 00:00 /proc/6207/exe -&gt; /usr/local/nginx/sbin/nginx-bak
+</code></pre>
+<p>这里发现了我的问题，原来没有使用新的nginx来运行，仍然是跑的老nginx。</p>
+<h3 id="进一步查看配置文件"><a href="#进一步查看配置文件" class="headerlink" title="进一步查看配置文件"></a>进一步查看配置文件</h3><pre><code>[root@fair-laser-1 ~]# /usr/local/nginx/sbin/nginx-bak -t    
+nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok
+nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful
+</code></pre>
+<p>这里可以看到配置文件，我的是没什么问题。</p>
+<h3 id="修复"><a href="#修复" class="headerlink" title="修复"></a>修复</h3><pre><code>找到了问题，只要关掉旧的 nginx，重新启动新的 ngxin 程序就好了。
+nginx -s stop
+/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+</code></pre>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我在重新 make 之前，先将原来的nginx改名为nginx-bak，在make之后，没有先停止再启动，而是大意的使用命令重启了nginx<br>    nginx -s reload<br>这是错误的方式</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+        <category>系统</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+        <tag>系统</tag>
+        <tag>小窍门</tag>
       </tags>
   </entry>
 </search>
